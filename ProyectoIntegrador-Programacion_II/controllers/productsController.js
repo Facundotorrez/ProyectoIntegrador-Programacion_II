@@ -6,6 +6,7 @@ var productsController = {
     productAdd : function (req,res){
         res.render('product-add')
     }
+    
 }
 
 
