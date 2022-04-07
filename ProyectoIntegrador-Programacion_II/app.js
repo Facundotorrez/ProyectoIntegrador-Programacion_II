@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products'); //aca requiero el archivo de routes (products.js)
 
 var app = express();
 
@@ -19,8 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// inicio de las rutas de nuestro proyecto (prefijos)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter); //declaro la ruta a utilizar
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
