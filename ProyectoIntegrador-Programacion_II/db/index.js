@@ -1,92 +1,84 @@
 const libros ={
     lista: [{
         title:'Harry Potter y el cáliz de fuego',
-        autor:'JK Rowling',
+        autor:'J.K Rowling',
         genre:'Fantastico',
         edition: 2018,
         editorial:'Caligrama',
         language:'Español'
-    }
+    },
     {
         title:'El señor de los anillos: El retorno del rey',
-        autor: '',
+        autor: 'J.R.R Tolkien',
         genre:'Fantastico',
         edition: 2017,
         editorial:'Lulu',
         language:'Ingles'
-    }
+    },
     {
         title:'El señor de los anillos: Las dos torres',
-        autor: '',
+        autor: 'J.R.R Tolkien',
         genre:'Fantastico',
         edition: 2017,
         editorial:'Lulu',
         language:'Ingles'
-    }
+    },
     {
         title:'Eragon',
-        autor: '',
+        autor: 'Christopher Paolini',
         genre:'Fantastico',
         edition: 2018,
-        editorial:'Caligrama',
-        language:'Español'
-    }
+        editorial:'Bubok',
+        language:'Inlges'
+    },
     {
         title:'Las cronicas de Narnia; el leon, la bruja y el ropero',
-        autor: '',
+        autor: 'C.S Lewis',
         genre:'Fantastico',
         edition: 2019,
         editorial:'Círculo Rojo',
         language:'Inlges'
-    }
+    },
     {
-        title:'Harry Potter y la Piedra Filosofal',
-        autor:'',
-        genre:'Fantastico',
+        title:'La maldición de Hill House',
+        autor:'Shriley Jackson',
+        genre:'Terror',
         edition: 2018,
         editorial:'Caligrama',
         language:'Español'
-    }
+    },
     {
-        title:'Harry Potter y la Orden del Fénix',
-        autor:'',
-        genre:'Fantastico',
+        title:'La casa de Hojas',
+        autor:'Mark Z. Danielewski',
+        genre:'Terror',
         edition: 2017,
         editorial:'Caligrama',
         language:'Español'
-    }
+    },
     {
-        title:'Harry Potter y las Reliquias de la Muerte',
-        autor:'',
-        genre:'Fantastico',
+        title:'Frankenstein',
+        autor:'Mary Shelly',
+        genre:'Terror',
         edition: 2018,
-        editorial:'Caligrama',
-        language:'Español'
-    }
+        editorial:'Bubok',
+        language:'Ingles'
+    },
     {
-        title:'Harry Potter y el prisionero de Azkaban',
-        autor:'',
-        genre:'Fantastico',
+        title:'The Shining',
+        autor:'Stephen King',
+        genre:'Terror',
         edition: 2019,
-        editorial:'Caligrama',
-        language:'Español'
-    }
+        editorial:'Bubok',
+        language:'Ingles'
+    },
     {
-        title:'Harry Potter y el misterio del principe',
-        autor:'',
-        genre:'Fantastico',
+        title:'A ciegas',
+        autor:'Josh Malerman',
+        genre:'Terror',
         edition: 2018,
         editorial:'Caligrama',
         language:'Español'
-    }
-    {
-        title:'Harry Potter y la cámara secreta',
-        autor:'',
-        genre:'Fantastico',
-        edition: 2017,
-        editorial:'Caligrama',
-        language:'Español'
-    }
+    },
     {
         title:'Bajo la misma estrella',
         autor:'John Green',
@@ -94,7 +86,7 @@ const libros ={
         edition: 2016,
         editorial:'Bubok',
         language:'Español'
-    }
+    },
     {
         title:'Frigid',
         autor:'Jennifer L Armentrout',
@@ -102,7 +94,7 @@ const libros ={
         edition: 2021,
         editorial:'Bubok',
         language:'Ingles'
-    }
+    },
     {
         title:'Ciudad de papel',
         autor:'John Green',
@@ -110,7 +102,7 @@ const libros ={
         edition: 2016,
         editorial:'Círculo Rojo',
         language:'Español'
-    }
+    },
     {
         title:'It ends with us',
         autor:'Colleen Hoover',
@@ -118,7 +110,7 @@ const libros ={
         edition: 2021,
         editorial:'Bubok',
         language:'Ingles'
-    }
+    },
     {
         title:'The Proposal',
         autor:'Jasmine Guillory',
@@ -126,44 +118,126 @@ const libros ={
         edition: 2017,
         editorial:'Bubok',
         language:'Ingles'
-    }
+    },
     {
-        title:'Rojo, blanco y sangre azul',
-        autor:'Cassey Mcquinston',
-        genre:'Romance',
+        title:'Dune',
+        autor:'Frank Herbert',
+        genre:'Ciencia Ficción',
         edition: 2019,
         editorial:'Círculo Rojo',
         language:'Español'
-    }
+    },
     {
-        title:'Cariño, cuánto te odio',
-        autor:'Sally Thorne',
-        genre:'Romance',
+        title:'1984',
+        autor:'George Orwell',
+        genre:'Ciencia Ficción',
         edition: 2016,
         editorial:'Caligrama',
         language:'Español'
-    }
+    },
     {
-        title:'People We Meet on Vacation',
-        autor:'Emily Henry',
-        genre:'Romance',
+        title:'Fahrenheit 451',
+        autor:'Ray Bradbury',
+        genre:'Ciencia Ficción',
         edition: 2021,
         editorial:'Bubok',
         language:'Ingles'
-    }
+    },
     {
-        title:'El cuaderno de Noah',
-        autor:'Nicholas Sparks',
-        genre:'Romance',
+        title:'El problema d los tres cuerpos',
+        autor:'Liu Cixin',
+        genre:'Ciencia Ficción',
         edition: 2018,
-        editorial:'Bubok',
+        editorial:'Círculo Rojo',
         language:'Español'
-    }
+    },
     {
-
-    }
+        title:'Enders game',
+        autor:'Orson Scott Card',
+        genre:'Ciencia Ficción',
+        published: 2020,
+        editorial:'Bubok',
+        language:'Ingles'
+    },
     {
-
+        title:'Gullivers Travels',
+        autor:'Jonathan Swift',
+        genre:'Aventura',
+        published: 2015,
+        editorial:'Bubok',
+        language:'Ingles'
+    },
+    {
+        title:'Moby Dick',
+        autor:'Herman Melville',
+        genre:'Aventura',
+        published: 2017,
+        editorial:'Círculo Rojo',
+        language:'Español'
+    },
+    {
+        title:'Treasure Island',
+        autor:'Jonathan Swift',
+        genre:'Aventura',
+        published: 2015,
+        editorial:'Bubok',
+        language:'Ingles'
+    },
+    {
+        title:'Las minas del Rey Solomon',
+        autor:'Rider Haggard',
+        genre:'Aventura',
+        published: 2017,
+        editorial:'Círculo Rojo',
+        language:'Español'
+    },
+    {
+        title:'The Adventures of Huckleberry Finn',
+        autor:'Mark Twain',
+        genre:'Aventura',
+        published: 2018,
+        editorial:'Bubok',
+        language:'Ingles'
+    },
+    {
+        title:'Libro de Poemas',
+        autor:'Federicoo García Lorca',
+        genre:'Poesia',
+        published: 2020,
+        editorial:'Círculo Rojo',
+        language:'Español'
+    },
+    {
+        title:'Veinte poemas de amor y una canción desesperada',
+        autor:'Pablo Neruda',
+        genre:'Poesia',
+        published: 2017,
+        editorial:'Círculo Rojo',
+        language:'Español'
+    },
+    {
+        title:'Rimas y leyendas',
+        autor:'Gustavo Adolfo Bécquer',
+        genre:'Aventura',
+        published: 2016,
+        editorial:'Caligrama',
+        language:'Español'
+    },
+    {
+        title:'Poesia completa',
+        autor:'Alejandra Pizarnik',
+        genre:'Poesia',
+        published: 2018,
+        editorial:'Círculo Rojo',
+        language:'Español'
+    },
+    {
+        title:'Pillow Thoughts',
+        autor:'Courtney Peppernell',
+        genre:'Poesia',
+        published: 2019,
+        editorial:'Bubok',
+        language:'Ingles'
     }
 ]
 }
