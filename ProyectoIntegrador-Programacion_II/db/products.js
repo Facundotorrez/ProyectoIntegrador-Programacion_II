@@ -1,12 +1,13 @@
-const libros ={
-    lista: [{
+const productos ={
+    lista: [
+        
+        {
         title:'Harry Potter y el cáliz de fuego',
-        autor:'J.K Rowling',
-        genre:'Fantastico',
-        edition: 2018,
-        editorial:'Caligrama',
-        language:'Español'
+        imagenProduct: '/images/products/harryPotter.png',
+        descripcion : 'Este libro fué escrito por J.K Rowling. El genero es Fantástico, y su editorial proviene de Caligrama.',
+        fecha : '2008',
     },
+
     {
         title:'El señor de los anillos: El retorno del rey',
         autor: 'J.R.R Tolkien',
@@ -241,4 +242,4 @@ const libros ={
     }
 ]
 }
-module.exports = libros;
+module.exports = productos;

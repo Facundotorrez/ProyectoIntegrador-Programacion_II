@@ -1,3 +1,5 @@
+var productos = require ('../db/products')
+
 var indexController = {
     index : function(req,res) {
         res.render('index');

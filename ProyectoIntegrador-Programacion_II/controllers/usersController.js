@@ -1,3 +1,5 @@
+var users = require('../db/users');
+var products = require('../db/products');
 
 const usersController = {
     login : function (req,res){
