@@ -1,11 +1,17 @@
-const libros ={
-    lista: [{
+const data ={
+  /*  usuarios:[{
+        email: "joaquin@gmail.com"
+    },{
+
+    }],*/
+    libros: [{
         title:'Harry Potter y el cáliz de fuego',
         autor:'J.K Rowling',
         genre:'Fantastico',
         edition: 2018,
         editorial:'Caligrama',
         language:'Español'
+        //agregar imagenes una x una
     },
     {
         title:'El señor de los anillos: El retorno del rey',
@@ -241,4 +247,4 @@ const libros ={
     }
 ]
 }
-module.exports = libros;
+module.exports = data;

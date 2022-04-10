@@ -1,3 +1,5 @@
+const data = require('../db/data');
+
 var productsController = {
     index : function (req,res){
         res.render('product')
