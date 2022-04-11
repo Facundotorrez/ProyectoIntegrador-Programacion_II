@@ -13,7 +13,7 @@ const usersController = {
     },
 
     profile : function (req,res){
-        res.render('profile')
+        res.render('profile', {usuario:data.usuarios });
     }
 
 }

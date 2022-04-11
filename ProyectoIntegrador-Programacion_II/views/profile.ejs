@@ -8,25 +8,25 @@
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
+	
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+				<img src="<%= usuario.imagenPerfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">Nombre del usuario 
-						<a href="profile-edit">
+					<h1 class="main-title"><%= usuario.nombreDeUsuario %> 
+						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
+
 				<div>
 					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li> <%= usuario.email %>  </li>
 					</ul>
 				</div>
 			</div>

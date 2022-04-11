@@ -1,16 +1,8 @@
-const data ={
-  /*  usuarios:[{
-        email: "joaquin@gmail.com"
-    },{
-
-    }],*/
+const data ={  
     usuarios:{
-        mail : '',
-        nombredeUsuario : '',
-        contraseña : '',
-        nacimiento: '',
-        documento: '',
-        imagenPerfil : '',
+        email : 'federico@gmial.com',
+        nombreDeUsuario : 'Fede12',
+        imagenPerfil : '/images/users/fede.jpeg',
     },
     libros: [{
         title:'Harry Potter y el cáliz de fuego',
