@@ -12,112 +12,81 @@ const data ={
         documento: '',
         imagenPerfil : '',
     },
+
     libros: [{
         title:'Harry Potter y el cáliz de fuego',
-        autor:'J.K Rowling',
-        genre:'Fantastico',
         edition: 2018,
-        editorial:'Caligrama',
-        language:'Español',
+        description: 'Harry Potter y el cáliz de fuego es el cuarto libro de la serie literaria Harry Potter, escrita por la autora británica J. K. Rowling en 2000.',
         imagenProduct: '/images/products/harryPotter.png',
-        //agregar imagenes una x una
     },
         
     {
         title:'El señor de los anillos: El retorno del rey',
-        autor: 'J.R.R Tolkien',
-        genre:'Fantastico',
         edition: 2017,
-        editorial:'Lulu',
-        language:'Ingles'
+        description: ' The Lord of the Rings: The Return of the King es la tercera película de la trilogía cinematográfica de El Señor de los Anillos, dirigida por Peter Jackson y basada en la tercera parte de la obra de J. R. R. Tolkien, El Señor de los Anillos.',
+        imagenProduct:'/images/products/señordelosanillos.jpg',
     },
     {
         title:'El señor de los anillos: Las dos torres',
-        autor: 'J.R.R Tolkien',
-        genre:'Fantastico',
         edition: 2017,
-        editorial:'Lulu',
-        language:'Ingles'
+        description: 'The Lord of the Rings: The Two Towers es una película basada en el segundo tomo de la novela El Señor de los Anillos, del escritor británico J. R. R. Tolkien. Es la secuela de La Comunidad del Anillo y precede a la última entrega de la serie, El retorno del Rey.',
+        imagenProduct: '/images/products/lastorresdos.jpg',
     },
     {
-        title:'Eragon',
-        autor: 'Christopher Paolini',
-        genre:'Fantastico',
+        title:'Después',
+        edition: 2021,
+        description:'Después es una novela policial del escritor Stephen King. Fue publicada originalmente el 2 de marzo de 2021 en idioma inglés y el 21 de junio en idioma español. La novela entró en la lista de superventas del periódico The New York Times en el número 2',
+        imagenProduct: '/images/products/despues.jpg',
+    },
+    {
+        title:'Maze Runner',
         edition: 2018,
-        editorial:'Bubok',
-        language:'Inlges'
+        description:'The Maze Runner, es una novela distópica escrita por el autor estadounidense James Dashner, como primer libro de la trilogía homónima. Fue publicado en octubre de 2009 por Delacorte Press, división de Random House Mondadori.',
+        imagenProduct:'/images/products/mazerunner.jpg',
     },
     {
-        title:'Las cronicas de Narnia; el leon, la bruja y el ropero',
-        autor: 'C.S Lewis',
-        genre:'Fantastico',
-        edition: 2019,
-        editorial:'Círculo Rojo',
-        language:'Inlges'
-    },
-    {
-        title:'La maldición de Hill House',
-        autor:'Shriley Jackson',
-        genre:'Terror',
+        title:'El cerebro del futuro',
         edition: 2018,
-        editorial:'Caligrama',
-        language:'Español'
+        description: 'Facundo Manes y Mateo Niro unen de nuevo sus fuerzas y nos presentan un sólido y minucioso trabajo en el que analizan los aspectos más relevantes que tendremos que afrontar de cara a un mañana que ya está entre nosotros, y aquellos otros a los que deberemos atender sin excepción para alcanzar una sociedad en la que el bienestar sea general. De este modo, desarrollan temas fundamentales como el papel que deben jugar en este contexto las neurociencias y el trabajo interdisciplinario; el impacto de las nuevas tecnologías en el cerebro; la neuroética y los límites que deberán establecerse frente a los avances científicos; la incidencia y los posibles tratamientos de las enfermedades mentales cada vez más propagadas; y una reflexión profunda acerca de las problemáticas sociales actuales y el rol de la ciencia para su resolución. Tras el enorme éxito de Usar el cerebro, Manes y Niro nos invitan en su nuevo libro a dar un paso más allá en esta magnífica aventura que significa entender el presente para vivir una «vida moderna» plena, desarrollada y humana.',
+        imagenProduct:'/images/products/cerebrodelfuturo.jpg',
     },
     {
         title:'La casa de Hojas',
-        autor:'Mark Z. Danielewski',
-        genre:'Terror',
         edition: 2017,
-        editorial:'Caligrama',
-        language:'Español'
-    },
-    {
-        title:'Frankenstein',
-        autor:'Mary Shelly',
-        genre:'Terror',
-        edition: 2018,
-        editorial:'Bubok',
-        language:'Ingles'
-    },
-    {
-        title:'The Shining',
-        autor:'Stephen King',
-        genre:'Terror',
-        edition: 2019,
-        editorial:'Bubok',
-        language:'Ingles'
-    },
-    {
-        title:'A ciegas',
-        autor:'Josh Malerman',
-        genre:'Terror',
-        edition: 2018,
-        editorial:'Caligrama',
-        language:'Español'
+        description: 'House of Leaves es la primera novela del autor estadounidense Mark Z. Danielewski, publicada en marzo de 2000 por Pantheon Books. Un éxito de ventas, se ha traducido a varios idiomas y le sigue una pieza complementaria, The Whalestoe Letters.',
+        imagenProduct: '/images/products/losjuegos.jpg',
+
     },
     {
         title:'Bajo la misma estrella',
-        autor:'John Green',
-        genre:'Romance',
-        edition: 2016,
-        editorial:'Bubok',
-        language:'Español'
+        edition: 2019,
+        description: 'Bajo la misma estrella es una novela escrita por John Green, la sexta en su carrera como autor literario, publicada el 10 de enero de 2012.',
+        imagenProduct: '/images/products/bajolamisma.jpg',
     },
     {
-        title:'Frigid',
-        autor:'Jennifer L Armentrout',
-        genre:'Romance',
+        title:'A ciegas',
+        edition: 2018,
+        description: 'A Ciegas es su primera novela y es un más que buen comienzo. Para aquellos que queráis encontrar información de primera mano sobre ella, el título original es Bird Box (Jaula para pájaros).',
+        imagenProduct: 'images/products/aciegas.jpg',
+
+    },
+    {
+        title:'Romeo y Julieta',
+        edition: 2009,
+        description: 'Cuenta la historia de dos jóvenes que, a pesar de la oposición de sus familiares, rivales entre sí, deciden casarse de forma ilegal y vivir juntos; sin embargo, la presión de esa rivalidad y una serie de fatalidades conducen a que la pareja elija el suicidio antes que vivir separados.',
+        imagenProduct: 'images/products/romeoyjulieta.jpg',
+    },
+    {
+        title:'A solas',
         edition: 2021,
-        editorial:'Bubok',
-        language:'Ingles'
+        description: 'En el mundo actual y especialmente a partir de una cierta edad, parece que la soledad se entiende como un fracaso: estar soltero, divorciado o separado es algo que debe superarse a toda costa. Sin embargo, saber estar solo es en realidad un signo de madurez, de autonomía, de riqueza personal.',
+        imagenProduct: 'images/products/asolas.jpg',
     },
     {
-        title:'Ciudad de papel',
-        autor:'John Green',
-        genre:'Romance',
+        title:'Una joven desaparece dejando una serie de pistas que solo su mejor amigo de la infancia podrá descifrar... Una novela de John Green, el autor de Bajo la misma estrella. En su último año de instituto, Quentin no ha aprobado ni en popularidad ni en asuntos del corazón.',
         edition: 2016,
-        editorial:'Círculo Rojo',
-        language:'Español'
+        description: '',
+        imagenProduct: '/images/products/ciudaddepapel.jpg',
     },
     {
         title:'It ends with us',
