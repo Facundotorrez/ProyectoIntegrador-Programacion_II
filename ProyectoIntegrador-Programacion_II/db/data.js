@@ -75,9 +75,9 @@ const data ={
         imagenProduct: 'images/products/asolas.jpg',
     },
     {
-        title:'Una joven desaparece dejando una serie de pistas que solo su mejor amigo de la infancia podrá descifrar... Una novela de John Green, el autor de Bajo la misma estrella. En su último año de instituto, Quentin no ha aprobado ni en popularidad ni en asuntos del corazón.',
+        title:'Ciudad de Papel',
         edition: 2016,
-        description: '',
+        description: 'Una joven desaparece dejando una serie de pistas que solo su mejor amigo de la infancia podrá descifrar... Una novela de John Green, el autor de Bajo la misma estrella. En su último año de instituto, Quentin no ha aprobado ni en popularidad ni en asuntos del corazón.',
         imagenProduct: '/images/products/ciudaddepapel.jpg',
     },
     {
@@ -218,7 +218,7 @@ const data ={
     }
 ],
 comentarios:[{
-    nombre : '',
+    nombre : 'Martina',
     opinion: '',
     image: '',
 
