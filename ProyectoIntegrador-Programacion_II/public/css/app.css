@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #ff0000;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -244,7 +244,7 @@ hr {
 }
 
 .product-box:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
 .product-box:hover p {
