@@ -21,9 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // inicio de las rutas de nuestro proyecto (prefijos)
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', productsRouter); //declaro la ruta a utilizar
+app.use('/product', productsRouter); //declaro la ruta a utilizar
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
