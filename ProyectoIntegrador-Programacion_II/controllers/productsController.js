@@ -2,7 +2,7 @@ const data = require('../db/data');
 
 var productsController = {
     index : function (req,res){
-        res.render('product')
+        res.render('product', {cometarios: data.comentarios});
     },
 
     productAdd : function (req,res){

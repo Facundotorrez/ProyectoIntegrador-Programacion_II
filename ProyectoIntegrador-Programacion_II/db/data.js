@@ -217,41 +217,42 @@ const data ={
         language:'Ingles'
     }
 ],
+
 comentarios:[{
     nombre : 'Martina',
-    opinion: '',
-    image: '',
+    opinion: 'Increible libro, brinda una experiencia inolvidable al lector',
+    image: 'images/users/usuario 1.png',
 
 },
 
 {
-    nombre : '',
-    opinion: '',
-    image: '',
+    nombre : 'Florencia',
+    opinion: 'Donde lo consigo?',
+    image: '/image/users/usuario 2.png',
 },
 
 {
-    nombre : '',
-    opinion: '',
-    image: '',
+    nombre : 'Camila',
+    opinion: 'Me gustó más el anterior',
+    image: '/image/users/usuario 3.png',
 },
 
 {
-    nombre : '',
-    opinion: '',
-    image: '',
+    nombre : 'Juana',
+    opinion: 'Excelente libro!! hay parte II?',
+    image: '/image/users/usuario 4.png',
 },
 
 {
-    nombre : '',
-    opinion: '',
-    image: '',
+    nombre : 'Franco',
+    opinion: 'Recomiendo este libro, es muy interesante!',
+    image: '/image/users/usuario 5.png',
 },
 
 {
-    nombre : '',
-    opinion: '',
-    image: '',
+    nombre : 'Esteban',
+    opinion: 'Para cuando la el segundo?',
+    image: '/image/users/usuario 6.png',
 }]
 }
 module.exports = data
