@@ -23,58 +23,16 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<!--
+						<% for(let i=0; i<comentarios.length; i++) { %> 	
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="<%= comentarios[i].image %> " alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile"> Alejandro Vívone</a> </strong>
-								 Donde lo consigo?</p>
+								<strong> <a href="/users/profile"> <%= comentarios[i].nombre %> </a> </strong>
+								 <%= comentarios[i].opinion %> </p>
 							</div>
 						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile">Ana</a> </strong>
-									Me gustó más el anterior</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile">Facundo Torrez</a> </strong>
-									Excelente libro!! hay parte II?
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile">Facundo Torrez</a> </strong>
-									Excelente libro!! hay parte II?
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile">Josefina Frugoni</a> </strong>
-									Recomiendo este libro, es muy interesante!</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile">Sebastian Rellihan </a> </strong>
-									Esperaba más...</p>
-							</div>
-						</article>
-					-->
+					 <% } %>
 
 					</section>
 					<form class="form" action="" method="POST">

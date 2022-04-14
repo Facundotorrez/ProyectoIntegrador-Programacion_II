@@ -228,31 +228,31 @@ comentarios:[{
 {
     nombre : 'Florencia',
     opinion: 'Donde lo consigo?',
-    image: '/image/users/usuario 2.png',
+    image: '/images/users/usuario 2.png',
 },
 
 {
     nombre : 'Camila',
     opinion: 'Me gustó más el anterior',
-    image: '/image/users/usuario 3.png',
+    image: '/images/users/usuario 3.jpg',
 },
 
 {
     nombre : 'Juana',
     opinion: 'Excelente libro!! hay parte II?',
-    image: '/image/users/usuario 4.png',
+    image: '/images/users/usuario 4.jpg',
 },
 
 {
     nombre : 'Franco',
     opinion: 'Recomiendo este libro, es muy interesante!',
-    image: '/image/users/usuario 5.png',
+    image: '/images/users/usuario 5.jpg',
 },
 
 {
     nombre : 'Esteban',
     opinion: 'Para cuando la el segundo?',
-    image: '/image/users/usuario 6.png',
+    image: '/images/users/usuario 6.jpg',
 }]
 }
 module.exports = data

@@ -23,62 +23,21 @@
 				<h2 class="products-title">MÁS POPULARES</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			<% for(let i = 0; i < 4; i++) { %> 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/product">
 						<figure class="product-box_image">
-							<img src="images/products/harryPotter.png" alt="Harry Poter: El cádiz de fuego ">
+							<img src="<%= libros[i].imagenProduct %> " alt="Harry Poter: El cádiz de fuego ">
 						</figure>
 						<article class="product-box_data">
-							<h2>Harry Potter: El cádiz de fuego</h2>
-							<p>J.K. Rowling</p>
-							<p>Aventura/Ciencia Ficción</p>
+							<h2> <%= libros[i].title %> </h2>
+							<p><%= libros[i].description %></p>
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="/images/products/señordelosanillos.jpg" alt="El señor de los anillos: El retorno del rey">
-						</figure>
-						<article class="product-box_data">
-							<h2>El señor de los anillos: El retorno del rey</h2>
-							<p>Peter Jackson</p>
-							<p>Aventura/Ciencia Ficción</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="/images/products/losjuegos.jpg" alt="Los juegos del hambre: Sinsajo">
-						</figure>
-						<article class="product-box_data">
-							<h2>Los juegos del hambre: Sinsajo</h2>
-							<p>Francis Lawrence</p>
-							<p> Aventura/ Ciencia Ficción</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/mazerunner.jpg" alt="Mazze Runner: Prueba de fuego">
-						</figure>
-						<article class="product-box_data">
-							<h2>Mazze Runner: Prueba de fuego</h2>
-							<p>James Dashner</p>
-							<p>Ciencia ficción/ Acción</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% } %> 
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -89,62 +48,22 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			
+			<% for(let i = 4; i < 8; i++) { %> 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/product">
 						<figure class="product-box_image">
-							<img src="images/products/harryPotter.png" alt="cafetera moulinex">
+							<img src="<%= libros[i].imagenProduct %> " alt="Harry Poter: El cádiz de fuego ">
 						</figure>
 						<article class="product-box_data">
-							<h2>Libro</h2>
-							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-							<p>Comentarios: 12</p>
+							<h2> <%= libros[i].title %> </h2>
+							<p><%= libros[i].description %></p>
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/harryPotter.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/harryPotter.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/harryPotter.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% } %> 
 		</div>
 	</div>
 	<!-- /Más comentados -->
