@@ -7,5 +7,4 @@ router.get('/', productsController.index );
 router.get('/product-add', productsController.productAdd);
 
 
-
 module.exports = router;
