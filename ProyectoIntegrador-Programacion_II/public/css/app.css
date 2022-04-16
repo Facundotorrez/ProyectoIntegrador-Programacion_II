@@ -174,7 +174,7 @@ hr {
   font-size: 3em;
   font-weight: 3em;
   text-shadow: -1px 0 black, 0 1px rgb(219, 255, 13),
-  1px 0 rgb(255, 230, 5);
+  1px 0 rgb(221, 199, 0);
   text-decoration: underline gold;
   color: var(--black);
   text-align: center;
@@ -469,7 +469,8 @@ textarea.form-input {
 }
 
 .foto-perfil{
-  border-radius: 50%;
+  border-radius: 70%;
+  border: solid;
 }
 
 .main-title{
