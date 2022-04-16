@@ -15,18 +15,19 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+				<h2 class="products-title">LOGIN</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="index.ejs" method="get">
-					<label for="">Nombre de Usuario</label>
-					<input type="email" name="email" id="email" placeholder="Ej:jose@gmail.com">
-					<label for="">Contraseña</label>
-					<input type="password" name="contraseña" id="contraseña" placeholder="Sushi123">
-					<label for="">Recordarme</label>
-					<input type="checkbox" name="recordarme" id="">
-				</form>
+				<section class="form-register">
+					<form method="get" name="form-register">
+						<input class="form-input" type="email" name="Email" placeholder="Email o Usuario">
+						<input class="form-input" type="password" name="Contraseña" placeholder="Contraseña">
+						<input type="checkbox" placeholder="<a href="/users/register"> Recordar
+						<a class="btn mt-3 ml-4" href="/users/profile">INGRESAR</a>
+	
+					</form>
+				</section>
 			</h2>
 
 
