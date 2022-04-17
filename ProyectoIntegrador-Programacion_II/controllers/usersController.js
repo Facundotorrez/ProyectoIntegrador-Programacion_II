@@ -13,7 +13,7 @@ const usersController = {
     },
 
     profile : function (req,res){
-        res.render('profile', {usuario:data.usuarios });
+        res.render('profile', {usuario:data.usuarios, libros:data.libros });
     }
 
 }

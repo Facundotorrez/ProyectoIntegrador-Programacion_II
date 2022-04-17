@@ -30,7 +30,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color:honeydew;
+  background-color:antiquewhite;
 }
 
 ul,
@@ -103,10 +103,7 @@ hr {
   position: absolute;
   right: 2px;
   height: 60%;
-  background-color: #ffffff;
   border: none;
-  border-left: solid 1px var(--light-gray);
-  color: var(--gray);
   cursor: pointer;
 }
 
@@ -114,7 +111,7 @@ hr {
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
-  color: #ffffff;
+  color: #000000;
   font-size: 1.5em;
   border: none;
   border-radius: 4px;
@@ -170,12 +167,11 @@ hr {
 }
 
 .products-title {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: cursive;
   font-size: 3em;
   font-weight: 3em;
-  text-shadow: -1px 0 black, 0 1px rgb(219, 255, 13),
-  1px 0 rgb(221, 199, 0);
-  text-decoration: underline gold;
+  text-shadow: 0 0 black;
+  text-decoration: auto;
   color: var(--black);
   text-align: center;
 }
@@ -239,7 +235,7 @@ hr {
   position: absolute;
   top: -15px;
   right: 15px;
-  background-color: #ffffff;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,7 +262,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #383838;
+  background-color: black;
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -330,8 +326,11 @@ hr {
 
 .product-detail-description {
   padding: 15px 15px 15px 40px;
-  font-size: 1.8em;
-  line-height: 1.5;
+    font-size: x-large;
+    margin-bottom: 1%;
+    line-height: 1.5;
+    margin-left: 9%;
+    font-family: fantasy;
 }
 
 .product-detail-price {
@@ -438,16 +437,13 @@ hr {
 }
 
 .form-input {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: block;
-  width: 100%;
+  width: 50%;
   height: 40px;
   margin-bottom: 15px;
-  font-size: 1.5em;
-  border-radius: 8px;
-  border: none;
-  border: solid 1px var(--gray);
   padding: 0 15px;
+  background: none;
+  margin-left: 25%;
 }
 
 .error{
@@ -479,15 +475,15 @@ textarea.form-input {
 }
 
 .btn{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #03264C;
-  padding: 10px 20px;
-  border-radius: 10px;
-  height: 40px;
-  color: #fff;
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  font-family: cursive;
+    background: black;
+    border-radius: 10px;
+    height: 40px;
+    width: 40%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -499,7 +495,7 @@ textarea.form-input {
   }
 
   .banner {
-    height: 500px;
+    height: 590px;
   }
 
   .btn-toggle-navbar {
@@ -540,23 +536,19 @@ textarea.form-input {
   .footer-data {
     width: 95%;
     margin: auto;
+    
   }
 
   .form-input {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
+    font-family: cursive;
+    color:black;
+    font-size: medium;
     border-radius: 8px;
-    border: none;
-    border: solid 3px;
-    padding: 0 15px;
-    border-color: var(--dark-blue);
+    border: solid 2px;
+    border-color: black;
   }
 
   .x {
-    background-color:honeydew;
+    background-color:antiquewhite;
   }
 }
