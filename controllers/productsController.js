@@ -1,5 +1,4 @@
 const data = require('../db/data');
-const book = db.book;
 
 var productsController = {
     index : function (req,res){
