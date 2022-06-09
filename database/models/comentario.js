@@ -24,12 +24,10 @@ module.exports = function (sequelize, dataTypes){ //los modelos son funciones, l
 
         createdAt:{
             type: dataTypes.DATE,
-            allowNull: true
         },
 
         updatedAt:{
             type: dataTypes.DATE,
-            allowNull: true
         }
     }
 
