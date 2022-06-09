@@ -29,7 +29,6 @@ module.exports = function (sequelize, dataTypes){
         },
         created_at:{
             type: dataTypes.DATE,
-       
         },
         updated_at:{
             type: dataTypes.DATE,
@@ -49,11 +48,11 @@ module.exports = function (sequelize, dataTypes){
     Usuario.associate = function (models){   //Producto(alias).associte(asociacion de modelos) ¿como lo puedo explicar?
 
         Usuario.hasMany(models.Comentario, {
-            as: 'Comentario',
+            as: 'comentario',
             foreignKey: 'id_usuario'
         })
         Usuario.hasMany(models.Producto, {
-            as: 'Producto',
+            as: 'producto',
             foreignKey: 'id_usuario'
         })
         Usuario.belongsToMany(models.Usuario, {
@@ -69,7 +68,7 @@ module.exports = function (sequelize, dataTypes){
             foreignKey: 'seguido_id',
             otherKey: 'seguidor_id',
             through: 'seguidores',
-            timestamps: true
+            timestamps: false
         })
     }
 

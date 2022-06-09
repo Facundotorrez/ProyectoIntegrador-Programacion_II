@@ -52,13 +52,13 @@ module.exports = function (sequelize, dataTypes){
 //Relaciones entre las tablas
     Producto.associate = function (models){   //Producto(alias).associte(asociacion de modelos)
         Producto.belongsTo(models.Usuario, {
-            as: 'Usuario',
-            ForeignKey: 'id_usuario'
+            as: 'usuario',
+            foreignKey: 'id_usuario'
         }) //asociacion entre el modelo productos y el modelo de usuarios
 
         Producto.hasMany(models.Comentario, {
-            as: 'Comentario',
-            ForeignKey: 'id_producto'
+            as: 'comentario',
+            foreignKey: 'id_producto'
         })
     }
     return Producto;
