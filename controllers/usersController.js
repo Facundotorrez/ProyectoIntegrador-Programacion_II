@@ -21,4 +21,3 @@ const usersController = {
 module.exports = usersController;
 
 //cada controlador renderiza las vistas que se requieren en cada caso.
-
