@@ -18,18 +18,15 @@
 		</div>
 		<div class="x">
 			</section>			<section class="form-register">
-				<form method="get" name="form-register">
-					<input class="form-input" type="email" name="Nombre" id="nombres" placeholder="Email">
-					<input class="form-input" type="text" name="Usuario" id="nombres" placeholder="Nombre de usuario">
-					<input class="form-input" type="password" name="Contraseña" id="nombres"
+				<form method="post" action="/users/register" name="form-register">
+					<input class="form-input" type="email" name="email" id="nombres" placeholder="Email">
+					<input class="form-input" type="text" name="usuario" id="nombres" placeholder="Nombre de usuario">
+					<input class="form-input" type="password" name="password" id="nombres"
 						placeholder="Contraseña">
-					<input class="form-input" type="date" name="Nombre" id="nombres"
+					<input class="form-input" type="date" name="brithdate" id="nombres"
 						placeholder="Fecha de nacimiento">
-					<input class="form-input" type="number" name="Nombre" id="nombres"
-						placeholder="Número de documento">
-					<input class="form-input" type="file" name="Nombre" id="nombres" placeholder="Foto de perfil">
-					<input type="checkbox" placeholder="" href="/users/register"> Estoy de acuerdo con términos y condiciones.
-					<a class="btn mt-3 ml-4" href="/users/profile">REGISTRARSE</a>
+					<input class="form-input" type="file" name="foto" id="nombres" placeholder="Foto de perfil">
+					<button type="submit"  class="btn mt-3 ml-4" >REGISTRARSE</button>
 				</form>
 			</section>
 		</div>				
