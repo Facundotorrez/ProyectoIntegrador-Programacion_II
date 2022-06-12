@@ -9,7 +9,8 @@ const usersController = {
     },
 
     profileEdit : function (req,res){
-        res.render('profile-edit')
+        res.render('profile-edit',{usuario:data.usuarios});
+        
     },
 
     profile : function (req,res){

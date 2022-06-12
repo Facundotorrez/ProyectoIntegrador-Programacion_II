@@ -7,8 +7,8 @@ var productsController = {
 
     productAdd : function (req,res){
         res.render('product-add', {
-            usuario: usuario,
-            comentarios: comentarios,
+            usuario: data.usuarios,
+            comentarios:data.comentarios,
 
         });
     }
