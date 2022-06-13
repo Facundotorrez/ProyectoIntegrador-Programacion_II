@@ -30,8 +30,10 @@ const usersController = {
     },
 
     singIn: function(req,res){
+        let errors = {};
+        
         //aclaro que los campos no pueden ir incompletos
-        if(!req.body.email || !req.body.password){
+        if(!req.body.email && !req.body.password){
             errors.message = 'No puede haber campos vacios';
             res.locals.errors = errors;
             return res.render('login');
@@ -41,22 +43,29 @@ const usersController = {
                     email: req.body.email
                 }]
             })
-            .then(function(user){ //Me fijo que el mail y la contraeña del usuario existn.(&& significan and(y))
-                if(user && bcrypt.compareSync(req.body.password, user.password)){
-                    req.session.user = user.dataValues;
-                    if(req.body.remember){
-                        res.cookie('userId', user.id, {
-                            maxAge: 1000 * 60 * 5
-                        });
-                    }
-                    console.log(req.session.user);
-                    res.redirect('/');
-                } else { //si no se acuerda de la contraseña manda que hay un error
+            .then(function(user){ //si no me anduvo  
+                if(user != null ){
+                    if(bcrypt.compareSync(req.body.password, user.contraseña)){
+                         req.session.user = user.dataValues;
+                        if(req.body.remember){
+                            res.cookie('userId', user.id, {
+                                maxAge: 1000 * 60 * 5
+                            });
+                        }
+                        console.log(req.session.user);
+                        res.locals.user = user
+                        console.log(res.locals.user);
+                        res.redirect('/index');
+                    } else { //si no se acuerda de la contraseña manda que hay un error
                     errors.message = 'El mail o contraseña son incorrectos'
                     res.locals.errors = errors;
                     return res.render('login');
-                }
-            })
+                    }
+            }  else { //si no se acuerda de la contraseña manda que hay un error
+                errors.message = 'El mail o contraseña son incorrectos'
+                res.locals.errors = errors;
+                return res.render('login');
+            }})
                 .catch(error => console.log(error))
         }
     },
