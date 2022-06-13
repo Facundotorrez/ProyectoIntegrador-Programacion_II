@@ -32,7 +32,7 @@ router.get('/profile', usersController.profile);
 
 //ruta por post
 
-router.post('/register',  usersController.store); //preguntar si estta bien
+router.post('/register', upload.single('foto'), usersController.store); //preguntar si estta bien
 
 router.post('/login', usersController.singIn); //duda
 

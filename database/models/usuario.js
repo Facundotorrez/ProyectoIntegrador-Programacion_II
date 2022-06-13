@@ -24,9 +24,6 @@ module.exports = function (sequelize, dataTypes){
         fecha:{
             type: dataTypes.DATE
         },
-        seguidos:{
-            type: dataTypes.STRING
-        },
         created_at:{
             type: dataTypes.DATE,
         },
@@ -39,6 +36,7 @@ module.exports = function (sequelize, dataTypes){
     let config = {
         tableName: 'usuarios', //Nombre de la tabla en la base de datos.
         timestamps: true, //Si la tabla no tiene los campos createdAt y updatedAt
+        underscored: true,
     }
 
     const Usuario =  sequelize.define(alias,cols,config);
@@ -55,7 +53,7 @@ module.exports = function (sequelize, dataTypes){
             as: 'producto',
             foreignKey: 'id_usuario'
         })
-        Usuario.belongsToMany(models.Usuario, {
+       /* Usuario.belongsToMany(models.Usuario, {
             as: 'seguido',
             foreignKey: 'seguidor_id',
             otherKey: 'seguido_id',
@@ -69,7 +67,7 @@ module.exports = function (sequelize, dataTypes){
             otherKey: 'seguidor_id',
             through: 'seguidores',
             timestamps: false
-        })
+        })*/
     }
     return Usuario;
 }

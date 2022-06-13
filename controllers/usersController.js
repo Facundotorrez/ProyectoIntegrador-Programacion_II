@@ -63,9 +63,9 @@ const usersController = {
         
 
     store : function (req,res){ //preguntar como encriptar
-        let errors = {}
+        let errors = {};
         // || significa or, simplifique el codigo y directamente estableci que no pueden ir con campo vacio las secciones de usuario/clave/mail/fechadenacimiento/fotodeperfil
-        if(!req.body.usuario || !req.body.email || !req.body.birthdate || !req.body.foto){
+        if(!req.body.usuario && !req.body.email && !req.body.birthdate && !req.body.foto){
             errors.message = 'No puede haber campos vacios';
             res.locals.errors = errors;
             return res.render('register');
@@ -84,16 +84,17 @@ const usersController = {
                     res.locals.errors = errors;
                     return res.render('register');
                 }else{
+                  //  return res.send(req.body)
                   let user = {
                     email: req.body.email,
-                    nombre_usuario: 'Juancito',
+                    nombre_usuario: req.body.usuario,
                     contraseña: bcrypt.hashSync(req.body.password, 10),
-                    foto_perfil: req.file.foto,
+                    foto_perfil: req.file.filename,
                     fecha: req.body.birthdate
                   }  
                   users.create(user)
                   .then(function(user){   //preguntar a ale xq no me toma la variable
-                    return res.redirect('/')
+                    return res.redirect('/index')
                   })            
                   .catch( error => console.log(error))      
                 }
