@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products'); //aca requiero el archivo de routes (products.js)
+const db = require('./database/models');
 
 var app = express();
 
@@ -29,6 +30,37 @@ app.use('/product', productsRouter); //declaro la ruta a utilizar
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+//session
+app.use(session({
+  secret: "librosdb",
+  resave: false,
+  saveUninitialized: true,
+}));
+
+//pasar los datos de session a local
+app.use(function(req, res, next){
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    let userId = req.cookies.userId;
+    //pregunto en la db
+    users.findByPk(userId)
+    .then(function(user){
+      req.session.user = user.dataValues
+      res.locals.user = user.dataValues
+      return next();
+    })
+    .catch(error => console.log(error))
+  } else {
+    return next();
+  }
+})
+
+//cookies
+app.use(function(req,res,next){
+  if(req.cookies.userId && !req.session.user){
+    db.Usuario.findByPk(req.cookies)
+  }
+})
 
 // error handler
 app.use(function(err, req, res, next) {

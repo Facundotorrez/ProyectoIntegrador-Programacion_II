@@ -7,19 +7,18 @@ router.get('/',)  ;
 
 router.get('/login', usersController.login); 
 
-router.get('/register', usersController.register); 
+router.get('/register', usersController.register); //creo que hay que cambiar a create
+//router.post('/store', upload.single('avatar'),usersController.store);
 
 router.get('/profile-edit', usersController.profileEdit); 
 
 router.get('/profile', usersController.profile); 
 
-// establecer rutas en post para guardar informacion de formularios
-router.get('/login', usersController.store); 
+//ruta por post
+router.get('/register', usersController.store);
 
-router.post('/register', usersController.store); 
+router.post('/login', usersController.singIn); //duda
 
-router.get('/profile-edit', usersController.store); 
-
-router.get('/profile', usersController.store); 
+router.post('/logout', usersController.logout);
 
 module.exports = router;
