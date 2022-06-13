@@ -9,8 +9,8 @@ const users = db.Usuario;
 const usersController = {
     login : function (req,res){ // chequear que un usuario este logeado
         
-        if(req.session  != undefined){
-            return res.redirect('/')
+        if(req.session.user  != undefined){
+            return res.redirect('/index')
         } else {
             return res.render('login');
         }
