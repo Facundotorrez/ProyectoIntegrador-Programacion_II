@@ -102,7 +102,7 @@ const usersController = {
         }
     },     
 
-    logout: function(req, res){  //chequear, es el logout
+    logout: function(req,res){  //chequear, es el logout
         req.session.destroy();
         if(req.cookies.userId !== undefined){
             res.clearCookie('userId')
