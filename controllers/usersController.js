@@ -1,7 +1,7 @@
 const data = require('../db/data');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
-const usuario = require('../database/models/usuario');
+const usuario = require('../database/models/usuario');//preguntar ale
 
 const users = db.Usuario;
 
@@ -14,8 +14,8 @@ const usersController = {
         }
     },
 
-    register : function (req,res){
-        res.render('register')
+    create : function (req,res){
+       return res.render('register');
     },
 
     profileEdit : function (req,res){
@@ -84,9 +84,10 @@ const usersController = {
                 }else{
                   let user = {
                     email: req.body.email,
-                    usuario: 'Juancito',
-                    password: bcrypt.hashSync(req.body.password, 10),
-                    foto: req.file.filename
+                    nombre_usuario: 'Juancito',
+                    contraseña: bcrypt.hashSync(req.body.password, 10),
+                    foto_perfil: req.file.foto,
+                    fecha: req.body.birthdate
                   }  
                   users.create(user)
                   .then(function(user){   //preguntar a ale xq no me toma la variable

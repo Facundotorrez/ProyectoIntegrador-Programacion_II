@@ -16,13 +16,12 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="product.ejs" method="get">
-					<input type="file" name="choose-file" id="">
+				<form action="product.ejs" method="get" enctype="multipart/form-data" >
+					<input type="file" name="imagen" id="">
 					<label for="">Nombre del Producto</label>
 					<input type="text" name="nombre-producto" id="">
 					<label for="">Descripción</label>
 					<input type="text" name="description" id="">
-					<input type="date" name="edition" id="">
 				</form>
 			
 			</h2>

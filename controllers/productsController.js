@@ -11,6 +11,21 @@ var productsController = {
             comentarios:data.comentarios,
 
         });
+    },
+
+    store: function(req, res){
+        //obtengo datos del formulario
+        let producto = {
+            titulo: req.body.nombre-producto,
+            descripcion: req.body.description
+            //hay que agregar imagen 
+        }
+        
+        productos.create(producto)
+        .then( function(respuesta){
+            return res.redirect('/')
+        })
+        .catch( error => console.log(error))
     }
 };
 
