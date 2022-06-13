@@ -168,10 +168,10 @@ hr {
 }
 
 .products-title {
-  font-family: cursive;
-  font-size: 3em;
-  font-weight: 3em;
-  text-shadow: 0 0 black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 4em;
+  font-weight: 4em;
+  text-shadow: 1px 3px 4px black , red, white;
   text-decoration: auto;
   color: var(--black);
   text-align: center;
