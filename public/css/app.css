@@ -30,7 +30,8 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color:antiquewhite;
+  text-decoration-color: #ccc;
+  background-color: black;
 }
 
 ul,
@@ -69,7 +70,7 @@ hr {
 
 /*====== Main Header ======*/
 .main-header {
-  padding: 10px;
+  padding: 2px;
   background-color: var(--black);
 }
 
@@ -170,10 +171,8 @@ hr {
 .products-title {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 4em;
-  font-weight: 4em;
-  text-shadow: 1px 3px 4px black , red, white;
-  text-decoration: auto;
-  color: var(--black);
+  color: white;
+  text-decoration-color: white;
   text-align: center;
 }
 
@@ -263,7 +262,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: black;
+  background-color: dimgray;
   padding: 20px 0;
   margin-top: 80px;
 }
