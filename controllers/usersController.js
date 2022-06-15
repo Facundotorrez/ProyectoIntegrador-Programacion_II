@@ -66,7 +66,7 @@ const usersController = {
         let errors = {};
         // || significa or, simplifique el codigo y directamente estableci que no pueden ir con campo vacio las secciones de usuario/clave/mail/fechadenacimiento/fotodeperfil
         if(!req.body.usuario && !req.body.email && !req.body.birthdate && !req.body.foto){
-            errors.message = 'No puede haber campos vacios';
+            errors.message = 'ATENCIÓN! No puede haber campos incompletos.';
             res.locals.errors = errors;
             return res.render('register');
         } else if(req.body.password.length <3){ //que la clave no tenga menos de 3 carcateres

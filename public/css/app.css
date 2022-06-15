@@ -448,11 +448,6 @@ hr {
   margin-left: 25%;
 }
 
-.error{
-  color: rgb(209, 0, 0);
-  font-size: 1.4em;
-}
-
 textarea.form-input {
   min-height: 140px;
   resize: vertical;
@@ -542,7 +537,7 @@ textarea.form-input {
   }
 
   .form-input {
-    font-family: cursive;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:black;
     font-size: medium;
     border-radius: 8px;
@@ -552,5 +547,13 @@ textarea.form-input {
 
   .x {
     background-color:antiquewhite;
+  }
+
+  .errors {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    color: #ff0000;
+    text-align: center;
+    font-weight: bold;
   }
 }
