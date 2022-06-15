@@ -22,6 +22,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//session
+app.use(session({
+  secret: "librosdb",
+  resave: false,
+  saveUninitialized: true,
+}));
+
 // inicio de las rutas de nuestro proyecto (prefijos)
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
@@ -32,12 +39,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-//session
-app.use(session({
-  secret: "librosdb",
-  resave: false,
-  saveUninitialized: true,
-}));
 
 //pasar los datos de session a local
 app.use(function(req, res, next){
