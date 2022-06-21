@@ -10,18 +10,42 @@ const op = db.Sequelize.Op; // operadores de sequelize
 var indexController = {
     index : function(req,res) {
         productos.findAll ({
-            include:[{association: 'owner'}, {association:'comentarios'}],
-            order:[['createdAt', 'DESC']],
-            limit: 4
+            order: [['createdAt', 'DESC']],
+            limit: 4,
+            include: [{association: 'User'}]
         })
-        .then(function(productos){
-            productos.
+        .then((productos) => {
+            return res.render('index', {produtos:productos})
         })
+        .catch(error => console.log(error))
         
     },
-
+    //estableciendo el navegador
     searchResults : function(req,res){
-        res.render('search-results')
+        let errors = {};  
+        let productoBuscar = req.query.search;
+        productos.findAll({
+            where: {
+                [op.or]: [
+                    {titulo:{[op.like]: '%' + search + '%'}},
+                    {descripcion: {[op.like]: '%' + search + '%'}},
+                ]
+            },
+            include: [{association: 'User'}]
+        })
+        .then((data) => {
+            if(data !==null){
+                return res.render('search-results', {productos: productoBuscar})
+            } else {
+                errors.message = 'No hay resultados para su criterio de búsqueda';
+                res.locals.errors = errors;
+                return res.render('search-results');
+            }
+            
+        })
+
+        .catch(error => console.log(error))
+
     },
 }
 
