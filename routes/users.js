@@ -27,7 +27,7 @@ router.get('/login', usersController.login);
 
 router.post('/login', usersController.singIn); //duda
 
-router.post('/profile', upload.single('foto_perfil'), usersController.profileEdit);
+router.post('/profile', upload.single('foto_perfil'), usersController.editar);
 
 router.post('/logout', usersController.logout);
 

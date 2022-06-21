@@ -9,6 +9,7 @@ const users = db.Usuario;
 const multer = require('multer');
 const path = require('path');
 const { dirname } = require('path');
+const { usuarios } = require('../db/data');
 
 
 const usersController = {
@@ -31,13 +32,12 @@ const usersController = {
     },
 
     profileEdit : function (req,res){
-        res.render('profile-edit',{usuario:data.usuarios});
-        
+        return res.render('profile-edit');
     },
 
     profile : function (req,res){
-        res.render('profile', {usuario:data.usuarios, libros:data.libros });
-    },
+        return res.render('profile');
+    }, //preguntar 
 
     singIn: function(req,res){
         let errors = {};        
@@ -120,6 +120,53 @@ const usersController = {
             .catch( error => console.log(error))
         }
     },     
+
+
+    editar: function(req, res){
+        let errors = {}
+        //hago formulario como el de register
+        if(req.body.email == null){
+            errors.message = 'Llenar campo de email';
+            res.locals.errors = errors;
+            return res.reder('profile-edit');
+        } else if (req.body.nombre_usuario == null){
+            errors.message = 'Completar campo con nombre de Usuario';
+            res.locals.errors = errors;
+            return res.render('profile-edit');
+        } else if (req.file.filename == null){
+            errors.message = 'Completar campo con una imagen';
+            res.locals.errors = errors;
+            return res.render('profile-edit');
+        } else {
+            //fijarse que el mail no exista en la base
+            users.findOne({
+                where: [{email: req.body.email}]
+            })
+            .then( function(user){
+                if(user !== null){
+                    errors.message = 'El email ya existe, elija otro';
+                    res.locals.errors = errors;
+                    return res.render('register');
+                }else{
+                  //  return res.send(req.body)
+                  let user = {
+                    email: req.body.email,
+                    nombre_usuario: req.body.usuario,
+                    contraseña: bcrypt.hashSync(req.body.password, 10),
+                    foto_perfil: req.file.filename,
+                    fecha: req.body.fecha
+                  }  
+                
+                  users.update(user, {where: {id: req.session.user.id}})
+                  .then(function (userEditado){
+                    return res.redirect('profile' + req.session.user.id)
+                  })
+                  .catch( error => console.log(error))
+                }
+            })
+            .catch( error => console.log(error))
+        }
+    },
 
     logout: function(req,res){  //chequear, es el logout
         req.session.destroy();

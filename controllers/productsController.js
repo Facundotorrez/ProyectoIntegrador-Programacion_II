@@ -53,12 +53,13 @@ var productsController = {
         .catch(error => console.log(error))
     },
 
-    productAdd : function (req,res){
-        res.render('product-add', {
-            usuario: data.usuarios,
-            comentarios:data.comentarios,
-
-        });
+    productAdd :function (req, res) {
+        if(req.session.user != undefined ){
+            return res.render('product-add', { usuarios: [] });
+        } else {
+            return res.redirect('/users/register')
+        }
+        
     },
 
     editar: function(req, res){
