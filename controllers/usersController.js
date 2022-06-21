@@ -3,7 +3,7 @@ const data = require('../db/data');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const usuario = require('../database/models/usuario');//preguntar ale
-
+const seguidores = db.Seguidor
 const users = db.Usuario;
 
 const usersController = {
@@ -118,7 +118,28 @@ const usersController = {
             res.clearCookie('userId')
         }
         return res.redirect('/');
-    }
+    },
+
+    seguir: function(req,res){
+
+        if (!req.session.user){
+            res.redirect('/users/'+req.params.id);
+        }
+
+        db.Seguidor.create({
+            seguidor_id: req.session.user.id,
+            Seguido_id: req.params.id
+        }).then(seguidor =>{
+            res.redirect('/users/'+req.params.id);
+        }).catch(error =>{
+            return res.send(error);
+        })
+    },
+    noseguir: function(req,res){
+        if(!req.session.user){
+            res.redirect('/users/'+req.params.id);
+        }
+    },
 
 }
 

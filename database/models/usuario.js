@@ -53,21 +53,21 @@ module.exports = function (sequelize, dataTypes){
             as: 'producto',
             foreignKey: 'id_usuario'
         })
-       /* Usuario.belongsToMany(models.Usuario, {
+        Usuario.hasMany(models.Seguidor, {
             as: 'seguido',
-            foreignKey: 'seguidor_id',
-            otherKey: 'seguido_id',
-            through: 'seguidores',
-            timestamps: true
-
-        })
-        Usuario.belongsToMany(models.Usuario, {
-            as: 'seguidor',
             foreignKey: 'seguido_id',
-            otherKey: 'seguidor_id',
+        /*    otherKey: 'seguido_id',
+            through: 'seguidores',
+            timestamps: true */
+        })
+        Usuario.hasMany(models.Seguidor, {
+            as: 'seguidores',
+            foreignKey: 'seguidor_id',
+      /*      otherKey: 'seguidor_id',
             through: 'seguidores',
             timestamps: false
-        })*/
+        */
+       })  
     }
     return Usuario;
 }

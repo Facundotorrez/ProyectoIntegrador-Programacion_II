@@ -38,4 +38,6 @@ router.post('/login', usersController.singIn); //duda
 
 router.post('/logout', usersController.logout);
 
+router.post('/seguir/:id?', usersController.seguir);
+
 module.exports = router;
