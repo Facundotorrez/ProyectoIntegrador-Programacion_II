@@ -3,7 +3,7 @@ const data = require('../db/data');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const usuario = require('../database/models/usuario');//preguntar ale
-const seguidores = db.Seguidor
+const seguidores = db.Seguidor;
 const users = db.Usuario;
 
 const usersController = {
