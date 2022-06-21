@@ -17,25 +17,40 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage})
 
-/* GET users listing. */
+// rutas chequear orden
 
-router.get('/',)  ; 
+router.get('/profile-edit/id:', usersController.profileEdit);
+
+router.get('/index',)  ; 
 
 router.get('/login', usersController.login); 
 
-router.get('/register', usersController.create); //creo que hay que cambiar a create
-//router.post('/store', upload.single('avatar'),usersController.store);
-
-router.get('/profile-edit', usersController.profileEdit); 
-
-router.get('/profile', usersController.profile); 
-
-//ruta por post
-
-router.post('/register', upload.single('foto'), usersController.store); //preguntar si estta bien
-
 router.post('/login', usersController.singIn); //duda
 
+router.post('/profile', upload.single('foto_perfil'), usersController.profileEdit);
+
 router.post('/logout', usersController.logout);
+
+router.get('/register', usersController.create); //Muestra el form registro al usuario
+
+router.post('/register', upload.single('foto_perfil'), usersController.store); //preguntar si estta bien
+
+router.get('/:id', usersController.show);
+
+
+
+//router.get('/profile-edit/id:', usersController.profileEdit); 
+
+//router.get('/profile', usersController.profile); 
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
