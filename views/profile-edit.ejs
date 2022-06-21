@@ -16,23 +16,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="login.ejs" method="get">
-					<label for="">Nombre</label>
-					<input type="text" name="nombre-usuario" id="usuario" placeholder="Ej:Facundo">
-					<label for="">Email</label>
-					<input for="email" name="mail" placeholder="Ej: jose@gmail.com">
-					<label for="">Contraseña</label>
-					<input type="password" name="contraseña" id="contraseña" placeholder="Ej: Sushi123">
-					<label for="">Fecha de nacimiento</label>
-					<input type="date" name="birth-date" id="birth-date" placeholder="Ej: 09/09/2001">
-					<label for="">DNI</label>
-					<input type="number" name="DNI" id="DNI" placeholder="Ej: 43780871">
-					<label for="">Foto de perfil</label>
-					<input type="file" name="choose-file" id="imgen">
-					
+				<form method="post" action="/users/register" name="form-register" enctype="multipart/form-data">
+						<input class="form-input" type="email" name="email" id="nombres" placeholder="Email">
+						<input class="form-input" type="text" name="nombre_usuario" id="nombres" placeholder="Nombre de usuario">
+						<input class="form-input" type="password" name="password" id="nombres"
+							placeholder="Contraseña">
+						<input class="form-input" type="date" name="fecha" id="nombres"
+							placeholder="Fecha de nacimiento">
+						<input class="form-input" type="file" name="foto_perfil" id="nombres" placeholder="Foto de perfil">
+						<button type="submit"  class="btn mt-3 ml-4" >REGISTRARSE</button>
 				</form>
+					<% if(locals.errors){  %>
+						<p class="errors"><%=errors.message%> </p> 
+					<% } %>
+					
+				
 			</h2>
-		
+		</div>
 	<%- include('./partials/footer') %> 
 </body>
 

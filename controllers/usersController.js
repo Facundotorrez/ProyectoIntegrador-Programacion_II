@@ -3,13 +3,19 @@ const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
+<<<<<<< HEAD
 const users = db.Usuario
 const Seguidor = db.seguidores
+=======
+const users = db.Usuario;
+const seguidores = db.Seguidor;
+>>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
 
 //multer 
 const multer = require('multer');
 const path = require('path');
 const { dirname } = require('path');
+const { usuarios } = require('../db/data');
 
 
 const usersController = {
@@ -54,17 +60,53 @@ const usersController = {
     create : function (req,res){
        return res.render('register');
     },
+<<<<<<< HEAD
     
     profileEdit: function (req, res) {
         if(req.session.user == undefined){
             return res.redirect('/')
     }
+=======
+
+    profileEdit : function (req,res){
+        return res.render('profile-edit');
+>>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
     },
     
 
-    profile : function (req,res){
-        res.render('profile', {usuario:data.usuarios, libros:data.libros });
-    },
+   show: function (req,res){
+    let data = {
+        users: null,
+        productos: null,
+        comentarios: null
+    };
+    users.findOne({
+        where: [{id: req.params.id}]
+    })
+    .then(function(users){
+        comentarios.findAll({
+            where: [{FkUsersId: req.params.id}]
+        })
+        .then(function (comentarios){
+            productos.findAll({
+                where: [{FkUsersId: req.params.id}]
+            })
+            .then(function(productos){
+                seguidores.findAll({
+                    where: [{FkUsersId: req.params.id}]
+                })
+                .then(function(seguidores){
+                    seguidores.findOne({
+                        where: [
+                            {FkUsersId: req.params.id},
+                            {FkSeguidorId: res.locals.user.id}
+                        ]
+                    })
+                })
+            })
+        })
+    })
+   },
 
     singIn: function(req,res){
         let errors = {};        
@@ -148,7 +190,58 @@ const usersController = {
         }
     },     
 
+<<<<<<< HEAD
     logout: function(req,res){  
+=======
+
+    editar: function(req, res){
+        let errors = {}
+        //hago formulario como el de register
+        if(req.body.email == null){
+            errors.message = 'Llenar campo de email';
+            res.locals.errors = errors;
+            return res.reder('profile-edit');
+        } else if (req.body.nombre_usuario == null){
+            errors.message = 'Completar campo con nombre de Usuario';
+            res.locals.errors = errors;
+            return res.render('profile-edit');
+        } else if (req.file.filename == null){
+            errors.message = 'Completar campo con una imagen';
+            res.locals.errors = errors;
+            return res.render('profile-edit');
+        } else {
+            //fijarse que el mail no exista en la base
+            users.findOne({
+                where: [{email: req.body.email}]
+            })
+            .then( function(user){
+                if(user !== null){
+                    errors.message = 'El email ya existe, elija otro';
+                    res.locals.errors = errors;
+                    return res.render('register');
+                }else{
+                  //  return res.send(req.body)
+                  let user = {
+                    email: req.body.email,
+                    nombre_usuario: req.body.usuario,
+                    contraseña: bcrypt.hashSync(req.body.password, 10),
+                    foto_perfil: req.file.filename,
+                    fecha: req.body.fecha
+                  }  
+                
+                  users.update(user, {where: {id: req.session.user.id}})
+                  .then(function (userEditado){
+                    return res.redirect('profile' + req.session.user.id)
+                  })
+                  .catch( error => console.log(error))
+                }
+            })
+            .catch( error => console.log(error))
+        }
+    },
+
+    logout: function(req,res){  //chequear, es el logout
+>>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
         req.session.destroy();
         if(req.cookies.userId !== undefined){
             res.clearCookie('userId')
