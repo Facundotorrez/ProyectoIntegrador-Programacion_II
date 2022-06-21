@@ -1,7 +1,7 @@
 const data ={  
     usuarios:{
-        email : 'federico@gmial.com',
-        nombreDeUsuario : 'Fede12',
+        email : 'Federico12@gmail.com',
+        nombreDeUsuario : '@Fede12',
         imagenPerfil : '/images/users/fede.jpeg',
     },
 

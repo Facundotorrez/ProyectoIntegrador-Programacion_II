@@ -30,8 +30,8 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  text-decoration-color: #ccc;
-  background-color: black;
+  text-decoration-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 ul,
@@ -44,7 +44,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: rgb(168, 168, 168);
+  color: aliceblue;
 }
 
 figure {
@@ -135,6 +135,7 @@ hr {
 .logout{
   background: transparent;
   border: 0px;
+  color: aliceblue;
   cursor: pointer;
   font-size: 1em;
 }
@@ -171,8 +172,8 @@ hr {
 .products-title {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 4em;
-  color: white;
-  text-decoration-color: white;
+  color: rgb(0, 0, 0);
+  text-decoration-color: rgb(0, 0, 0);
   text-align: center;
 }
 

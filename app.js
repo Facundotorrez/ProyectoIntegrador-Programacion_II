@@ -39,7 +39,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-
 //pasar los datos de session a local
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){
@@ -63,7 +62,6 @@ app.use(function(req,res,next){
     db.Usuario.findByPk(req.cookies)
   }
 })
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

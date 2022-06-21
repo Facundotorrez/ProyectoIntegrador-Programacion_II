@@ -45,12 +45,4 @@ router.get('/:id', usersController.show);
 
 
 
-
-
-
-
-
-
-
-
 module.exports = router;
