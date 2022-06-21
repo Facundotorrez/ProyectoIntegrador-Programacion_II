@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
 const users = db.Usuario;
+const seguidores = db.Seguidor;
 
 //multer 
 const multer = require('multer');
@@ -35,9 +36,39 @@ const usersController = {
         return res.render('profile-edit');
     },
 
-    profile : function (req,res){
-        return res.render('profile');
-    }, //preguntar 
+   show: function (req,res){
+    let data = {
+        users: null,
+        productos: null,
+        comentarios: null
+    };
+    users.findOne({
+        where: [{id: req.params.id}]
+    })
+    .then(function(users){
+        comentarios.findAll({
+            where: [{FkUsersId: req.params.id}]
+        })
+        .then(function (comentarios){
+            productos.findAll({
+                where: [{FkUsersId: req.params.id}]
+            })
+            .then(function(productos){
+                seguidores.findAll({
+                    where: [{FkUsersId: req.params.id}]
+                })
+                .then(function(seguidores){
+                    seguidores.findOne({
+                        where: [
+                            {FkUsersId: req.params.id},
+                            {FkSeguidorId: res.locals.user.id}
+                        ]
+                    })
+                })
+            })
+        })
+    })
+   },
 
     singIn: function(req,res){
         let errors = {};        

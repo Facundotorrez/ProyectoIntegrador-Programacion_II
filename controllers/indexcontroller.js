@@ -3,7 +3,7 @@ const data = require('../db/data');
 //requerimos lo que necesitamos de los modelos
 //habilitamos la funcionalidad de los operadores de sequelize
 const productos = db.Producto;
-const usuarios = db.Usuarios; 
+const usuarios = db.Usuario; 
 const comentarios = db.Comentario;
 const op = db.Sequelize.Op; // operadores de sequelize
 
@@ -15,7 +15,7 @@ var indexController = {
             include: [{association: 'User'}]
         })
         .then((productos) => {
-            return res.render('index', {produtos:productos})
+            return res.render('/index', {productos:productos})
         })
         .catch(error => console.log(error))
         

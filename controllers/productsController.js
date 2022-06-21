@@ -37,7 +37,7 @@ var productsController = {
             if(unProducto.comentario[0] !=undefined){
                 for(let i=0; i < unProducto.comentarios.length; i++){
                     usuarios.findOne({ //me dice que usuario hizo el comentario y lo pide
-                        where: [{id: unComentario.comentarios[i].FKUserId}]
+                        where: [{id: unComentario.comentarios[i].FKUsersId}]
                     })
                     .then(function(unaPersonaQueComenta){
                         comentarios.push(unaPersonaQueComenta);
