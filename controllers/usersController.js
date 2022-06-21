@@ -1,12 +1,22 @@
 const data = require('../db/data');
-
 const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
-const usuario = require('../database/models/usuario');//preguntar ale
-const seguidores = db.Seguidor;
+const productos = db.Producto
+const comentarios = db.Comentario
 const users = db.Usuario;
 
+//multer 
+const multer = require('multer');
+const path = require('path');
+const { dirname } = require('path');
+
+
 const usersController = {
+
+    login: function (req, res){
+        return res.render('login');
+    },
+
     login : function (req,res){ // chequear que un usuario este logeado
         
         if(req.session.user  != undefined){
@@ -30,9 +40,8 @@ const usersController = {
     },
 
     singIn: function(req,res){
-        let errors = {};
-        
-        //aclaro que los campos no pueden ir incompletos
+        let errors = {};        
+       //aclaro que los campos no pueden ir incompletos
         if(!req.body.email && !req.body.password){
             errors.message = 'No puede haber campos vacios';
             res.locals.errors = errors;
@@ -67,15 +76,15 @@ const usersController = {
                 return res.render('login');
             }})
                 .catch(error => console.log(error))
-        }
+        } 
     },
         
 
     store : function (req,res){ //preguntar como encriptar
         let errors = {};
         // || significa or, simplifique el codigo y directamente estableci que no pueden ir con campo vacio las secciones de usuario/clave/mail/fechadenacimiento/fotodeperfil
-        if(!req.body.usuario && !req.body.email && !req.body.birthdate && !req.body.foto){
-            errors.message = 'ATENCIÓN! No puede haber campos incompletos.';
+        if(!req.body.nombre_usuario && !req.body.email && !req.body.fecha && !req.body.foto_perfil){
+            errors.message = 'No puede haber campos incompletos.';
             res.locals.errors = errors;
             return res.render('register');
         } else if(req.body.password.length <3){ //que la clave no tenga menos de 3 carcateres
@@ -99,7 +108,7 @@ const usersController = {
                     nombre_usuario: req.body.usuario,
                     contraseña: bcrypt.hashSync(req.body.password, 10),
                     foto_perfil: req.file.filename,
-                    fecha: req.body.birthdate
+                    fecha: req.body.fecha
                   }  
                   users.create(user)
                   .then(function(user){   //preguntar a ale xq no me toma la variable
@@ -120,7 +129,7 @@ const usersController = {
         return res.redirect('/');
     },
 
- /*   seguir: function(req,res){
+  seguir: function(req,res){
 
         if (!req.session.user){
             res.redirect('/users/'+req.params.id);
@@ -139,7 +148,7 @@ const usersController = {
         if(!req.session.user){
             res.redirect('/users/'+req.params.id);
         }
-    }, */
+    }, 
 
 }
 
