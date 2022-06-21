@@ -3,7 +3,8 @@ const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
-const users = db.Usuario;
+const users = db.Usuario
+const Seguidor = db.seguidores
 
 //multer 
 const multer = require('multer');
@@ -13,8 +14,32 @@ const { dirname } = require('path');
 
 const usersController = {
 
-    login: function (req, res){
-        return res.render('login');
+    usuario: function (req, res) {
+
+        let userId = req.params.id
+
+        User.findByPk(userId, {
+            include: [
+                { association: 'Producto' },
+                { association:'Comentario' },
+                { association:'Seguidor' },
+            ]
+        })
+        .then(data => {
+
+            let seguido = false 
+
+            for (let i=0; i<data.Seguidor.length; i++ )
+            {
+                
+               if(req.session.user.id == data.Seguidor[i].id){
+                    seguido = true 
+                }
+            }
+
+            return res.render('profile', { data: data, seguido: seguido })
+            })
+
     },
 
     login : function (req,res){ // chequear que un usuario este logeado
@@ -29,11 +54,13 @@ const usersController = {
     create : function (req,res){
        return res.render('register');
     },
-
-    profileEdit : function (req,res){
-        res.render('profile-edit',{usuario:data.usuarios});
-        
+    
+    profileEdit: function (req, res) {
+        if(req.session.user == undefined){
+            return res.redirect('/')
+    }
     },
+    
 
     profile : function (req,res){
         res.render('profile', {usuario:data.usuarios, libros:data.libros });
@@ -80,7 +107,7 @@ const usersController = {
     },
         
 
-    store : function (req,res){ //preguntar como encriptar
+    store : function (req,res){ 
         let errors = {};
         // || significa or, simplifique el codigo y directamente estableci que no pueden ir con campo vacio las secciones de usuario/clave/mail/fechadenacimiento/fotodeperfil
         if(!req.body.nombre_usuario && !req.body.email && !req.body.fecha && !req.body.foto_perfil){
@@ -111,7 +138,7 @@ const usersController = {
                     fecha: req.body.fecha
                   }  
                   users.create(user)
-                  .then(function(user){   //preguntar a ale xq no me toma la variable
+                  .then(function(user){   
                     return res.redirect('/index')
                   })            
                   .catch( error => console.log(error))      
@@ -121,7 +148,7 @@ const usersController = {
         }
     },     
 
-    logout: function(req,res){  //chequear, es el logout
+    logout: function(req,res){  
         req.session.destroy();
         if(req.cookies.userId !== undefined){
             res.clearCookie('userId')
@@ -129,26 +156,28 @@ const usersController = {
         return res.redirect('/');
     },
 
-  seguir: function(req,res){
-
-        if (!req.session.user){
-            res.redirect('/users/'+req.params.id);
-        }
-
-        db.Seguidor.create({
+    seguir: function (req, res) {
+            Seguidor.create({
             seguidor_id: req.session.user.id,
-            Seguido_id: req.params.id
-        }).then(seguidor =>{
-            res.redirect('/users/'+req.params.id);
-        }).catch(error =>{
-            return res.send(error);
-        })
+            seguido_id: req.params.id
+        }) 
+
+        .then(()=> res.redirect('/users/profile'+req.params.id))
+
+        .catch(errors => console.log(errors))
+        
     },
-    noseguir: function(req,res){
-        if(!req.session.user){
-            res.redirect('/users/'+req.params.id);
-        }
-    }, 
+
+    dejar_seguir: function (req, res) {
+        Seguido.destroy({
+            where: { seguidor_id: req.session.user.id, seguido_id: req.params.id }
+           
+        }) 
+
+        .then(()=> res.redirect('/user/profile/'+req.params.id))
+
+        .catch(errors => console.log(errors))
+    },
 
 }
 

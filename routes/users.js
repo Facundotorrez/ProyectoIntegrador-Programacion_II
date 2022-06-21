@@ -35,14 +35,11 @@ router.get('/register', usersController.create); //Muestra el form registro al u
 
 router.post('/register', upload.single('foto_perfil'), usersController.store); //preguntar si estta bien
 
-router.get('/:id', usersController.show);
+router.post('/:id', usersController.show);
 
+router.get('/seguir/:id', usersController.seguir);
 
-
-//router.get('/profile-edit/id:', usersController.profileEdit); 
-
-//router.get('/profile', usersController.profile); 
-
+router.get('/dejar_seguir/:id', usersController.dejar_seguir);
 
 
 module.exports = router;

@@ -3,6 +3,7 @@ module.exports = function (sequelize, dataTypes){
     let alias = 'Seguidor';
 
     let cols = {
+        
         id:{
             autoIncrement: true,
             primaryKey: true,
@@ -36,7 +37,7 @@ module.exports = function (sequelize, dataTypes){
 
     const Seguidor = sequelize.define(alias, cols, config);
 
-    Seguidor.associate = function(models){ //seguidor: va a estar asociado a otros modelos
+   /* Seguidor.associate = function(models){ //seguidor: va a estar asociado a otros modelos
         Seguidor.belongsTo(models.Usuario, { //en este caso, un seguidor pertenece a un seguidor. belongsto: pertenece a...
             as: 'Seguidor',
             foreignKey: 'seguidor_id'
@@ -44,8 +45,8 @@ module.exports = function (sequelize, dataTypes){
         Seguidor.belongsTo(models.Usuario, {
             as: 'seguido',
             foreignKey:'seguido_id'
-        })
-    }
+        })*/
+    
 
     return Seguidor;
 }

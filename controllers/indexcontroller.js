@@ -1,4 +1,5 @@
 
+const db = require('../database/models');
 const data = require('../db/data');
 //requerimos lo que necesitamos de los modelos
 //habilitamos la funcionalidad de los operadores de sequelize
@@ -15,7 +16,7 @@ var indexController = {
             limit: 4
         })
         .then(function(productos){
-            productos.
+          //  productos.
         })
         
     },
