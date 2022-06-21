@@ -120,7 +120,7 @@ const usersController = {
         return res.redirect('/');
     },
 
-    seguir: function(req,res){
+ /*   seguir: function(req,res){
 
         if (!req.session.user){
             res.redirect('/users/'+req.params.id);
@@ -139,7 +139,7 @@ const usersController = {
         if(!req.session.user){
             res.redirect('/users/'+req.params.id);
         }
-    },
+    }, */
 
 }
 
