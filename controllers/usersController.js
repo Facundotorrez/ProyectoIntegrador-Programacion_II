@@ -4,13 +4,17 @@ const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
 const users = db.Usuario
+<<<<<<< HEAD
 const Seguidor = db.seguidores
+=======
+const seguidores = db.Seguidor
+>>>>>>> c825524c3c0407b267d22ef934935b91adbc7635
 
 //multer 
 const multer = require('multer');
 const path = require('path');
 const { dirname } = require('path');
-const { usuarios } = require('../db/data');
+
 
 
 const usersController = {
@@ -65,23 +69,23 @@ const usersController = {
 
    show: function (req,res){
     let data = {
-        users: null,
+        usuarios: null,
         productos: null,
         comentarios: null
     };
     users.findOne({
         where: [{id: req.params.id}]
     })
-    .then(function(users){
-        comentarios.findAll({
+    .then(function(usuarios){
+        usuarios.findAll({
             where: [{FkUsersId: req.params.id}]
         })
         .then(function (comentarios){
-            productos.findAll({
+            comentarios.findAll({
                 where: [{FkUsersId: req.params.id}]
             })
             .then(function(productos){
-                seguidores.findAll({
+                productos.findAll({
                     where: [{FkUsersId: req.params.id}]
                 })
                 .then(function(seguidores){
@@ -235,7 +239,7 @@ const usersController = {
     },
 
     seguir: function (req, res) {
-            Seguidor.create({
+            seguidores.create({
             seguidor_id: req.session.user.id,
             seguido_id: req.params.id
         }) 
@@ -247,7 +251,7 @@ const usersController = {
     },
 
     dejar_seguir: function (req, res) {
-        Seguido.destroy({
+        seguidores.destroy({
             where: { seguidor_id: req.session.user.id, seguido_id: req.params.id }
            
         }) 

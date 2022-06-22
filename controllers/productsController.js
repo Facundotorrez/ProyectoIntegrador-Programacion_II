@@ -5,11 +5,13 @@ const op = db.Sequelize.Op; // lo necesito para poder trabajar con los operadore
 const comentarios = db.Comentario; // llamo al modulo de comentarios 
 const usuarios = db.Usuario;
 
-var productsController = {
-    index : function (req,res){
-        res.render('product', {comentarios: data.comentarios});
-    },
+//multer 
+const multer = require('multer');
+const path = require('path');
+const { dirname } = require('path');
 
+
+var productsController = {
     index: function(res, res){
         productos.findAll({
             include: [
@@ -23,7 +25,11 @@ var productsController = {
     },
 
     show: function(req,res){
+<<<<<<< HEAD
         productos.findOne({
+=======
+        /*productos.findOne({
+>>>>>>> c825524c3c0407b267d22ef934935b91adbc7635
             where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
         .then(function(unProducto){
@@ -50,7 +56,51 @@ var productsController = {
                 return res.render('product', {info: unComentario, comentarios: [], id: req.params.id});
             }
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error)) */
+    },
+
+    storeComentarios:function(req, res){
+        if(req.session.usuarios != undefined){
+            let comentario = {
+                id_producto: req.params.id,
+                id_usuario: req.params.id,
+                comentario: req.body.comentario
+            }
+            comentarios.create(comentario)
+            .then(()=>{        //ale explico en clase que asi se puede simplificar el uso del then. Sustituye el poner un .then(function(loQueCorresponde){})
+                return res.redirect('product' + req.params.id) //le pido a params el id del comentario 
+            })
+            //atrapo el error ahora y no despues del else, xq la promesa incluye la primer condicion . el else no necesita que ataje el error
+            .catch(error=>  console.log(error))
+        } else {
+            return res.redirect('/users/login')
+        }
+        
+    },
+
+    update: function(req,res) {
+        let errors = {};
+        if (req.body.titulo == null) {
+            errors.message = 'Completar el titulo';
+            res.locals.errors = errors;
+            return res.render('product-edit');
+        } else if (req.body.descripcion == null) {
+            errors.message = 'Completar descripcion';
+            res.locals.errors = errors;
+            return res.render('product-edit');
+        } else {
+            let producto = {
+                titulo: req.body.titulo,
+                descripcion: req.body.descripcion,
+                foto_producto: req.body.filename
+            };
+            productos.update(producto,
+                { where: { id: req.params.id } })
+                .then(function (producto) {
+                    return res.redirect('product' + req.params.id);
+                })
+                .catch(error => console.log(error));
+        }
     },
 
     productAdd :function (req, res) {
@@ -65,28 +115,39 @@ var productsController = {
     editar: function(req, res){
         productos.findByPk(req.params.id)
         .then(producto=> {
-            res.render('product-editar',{
-                info:producto
+            res.render('product-edit',{
+                data:producto   //corroborar , data puede generar error sino probar con info/informacion 
             })
         })
         .catch(error => console.log(error))
     },
+  
 
     store: function(req,res){
-        let productos = {
+        let producto = {
             titulo: req.body.titulo,
-            descripcion: req.body.descripcion
+            descripcion: req.body.descripcion,
+            foto_producto: req.body.filename
         }
-        productos.create(productos)
-        .then( function(producto){
-            return res.redirect('/index')
+        productos.create(producto)
+        .then( function(producto){  //?xq no aparece llamada -> buscar nombre correcto
+            return res.redirect('/index')  
         })
         .catch( error => console.log(error))
     },
 
-    
-    
+    eliminar: function(req, res){
+        productos.destroy({ where: {id: req.params.id}})
+        .then(resultados =>{
+            return res.redirect('/')
+        })
+        .catch(error => console.log(error))  
+    }
 }
+
+    
+    
+
 
 
 module.exports = productsController;
