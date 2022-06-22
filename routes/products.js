@@ -23,7 +23,7 @@ router.get('/product-add', productsController.productAdd);
 
 router.post('/store', upload.single('foto'), productsController.store); //ruta que guarda datos del form.
 
-//router.post('/comentarios', productsController.storeComentarios); //comments
+router.post('/comentarios', productsController.storeComentarios); //comments
 
 router.get('/:id', productsController.show); //va a mostrar el form de carga.
 

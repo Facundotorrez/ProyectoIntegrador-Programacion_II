@@ -19,7 +19,7 @@ const usersController = {
 
         let userId = req.params.id
 
-        User.findByPk(userId, {
+        users.findByPk(userId, {
             include: [
                 { association: 'Producto' },
                 { association:'Comentario' },

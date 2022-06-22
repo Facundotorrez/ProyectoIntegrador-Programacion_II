@@ -9,6 +9,7 @@ const usuarios = db.Usuario;
 const multer = require('multer');
 const path = require('path');
 const { dirname } = require('path');
+const producto = require('../database/models/producto');
 
 
 var productsController = {
@@ -24,35 +25,24 @@ var productsController = {
         .catch(error => console.log(error))
     },
 
-    show: function(req,res){ /*
+    show: function(req,res){ 
         productos.findOne({
+            include: [{assosciation: 'usuario'}],
             where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
-        .then(function(unProducto){
-         // mostrar los comentarios ordenados
-         // createdAt es una timestam que me permite saber cuando fueron creados los comentarios, lo que me sirve para saber el orden de llegada a la db. Asi los puedo expresar orderly
-         let ordenDeComentarios = unComentario.comentarios.slice().sort((a,b) => b.created_at - a.created_at); 
-         unComentario.comentarios = ordenDeComentarios; //preguntar a martin se borrar 
-         //hay que agregar un res.send?
-
-            let comentarios = [];  //lo puse ale en el repositorio asi, define la variable de comentarios
-            if(unProducto.comentario[0] !=undefined){
-                for(let i=0; i < unProducto.comentarios.length; i++){
-                    usuarios.findOne({ //me dice que usuario hizo el comentario y lo pide
-                        where: [{id: unComentario.comentarios[i].FKUsersId}]
-                    })
-                    .then(function(unaPersonaQueComenta){
-                        comentarios.push(unaPersonaQueComenta);
-                        if(i == unComentario.comentarios.length - 1){
-                            return res.render('product',{info: unComentario, comentarios: comentarios, id: req.params.id});
-                        }
-                    })
-                }
-            } else {
-                return res.render('product', {info: unComentario, comentarios: [], id: req.params.id});
-            }
+        .then(function(productos){
+            comentarios.findAll({
+                include: [{associaion: 'usuario'}, {association: 'producto'}],
+                where: [{id_producto: req.params.id}],  //puede dar error, no estoy segura si hay que pedirle a req.params.id 
+                order:[[['id', 'DESC']]]
+            })
+            .then(function(comentarios){
+                console.log(comentarios);
+                return res.render('productos', {productos: productos, comentarios: comentarios})
+            })
+            .catch(error => console.log(error));
         })
-        .catch(error => console.log(error)) */
+        .catch(error => console.log(error)) 
     },
 
     storeComentarios:function(req, res){
@@ -64,7 +54,7 @@ var productsController = {
             }
             comentarios.create(comentario)
             .then(()=>{        //ale explico en clase que asi se puede simplificar el uso del then. Sustituye el poner un .then(function(loQueCorresponde){})
-                return res.redirect('product' + req.params.id) //le pido a params el id del comentario 
+                return res.redirect('product/' + req.params.id) //le pido a params el id del comentario 
             })
             //atrapo el error ahora y no despues del else, xq la promesa incluye la primer condicion . el else no necesita que ataje el error
             .catch(error=>  console.log(error))
@@ -93,7 +83,7 @@ var productsController = {
             productos.update(producto,
                 { where: { id: req.params.id } })
                 .then(function (producto) {
-                    return res.redirect('product' + req.params.id);
+                    return res.redirect('product/' + req.params.id);
                 })
                 .catch(error => console.log(error));
         }
@@ -126,7 +116,7 @@ var productsController = {
             foto_producto: req.body.filename
         }
         productos.create(producto)
-        .then( function(producto){  //?xq no aparece llamada -> buscar nombre correcto
+        .then( function(){  //?xq no aparece llamada -> buscar nombre correcto
             return res.redirect('/index')  
         })
         .catch( error => console.log(error))
@@ -134,7 +124,7 @@ var productsController = {
 
     eliminar: function(req, res){
         productos.destroy({ where: {id: req.params.id}})
-        .then(resultados =>{
+        .then(() =>{                                      //son los result removi la palabra resultados xq no aparecia llamada y simplifique codigo
             return res.redirect('/')
         })
         .catch(error => console.log(error))  
