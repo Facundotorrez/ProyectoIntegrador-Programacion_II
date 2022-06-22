@@ -1,4 +1,3 @@
-
 const db = require('../database/models');
 const data = require('../db/data');
 //requerimos lo que necesitamos de los modelos
@@ -11,17 +10,13 @@ const op = db.Sequelize.Op; // operadores de sequelize
 var indexController = {
     index : function(req,res) {
         productos.findAll ({
-            order: [['createdAt', 'DESC']],
+            order: [['created_at', 'DESC']],
             limit: 4,
-            include: [{association: 'User'}]
+            include: [{association: 'usuario'}]
         })
-<<<<<<< HEAD
         .then(function(productos){
-          //  productos.
-=======
-        .then((productos) => {
-            return res.render('/index', {productos:productos})
->>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
+         // res.send(productos)
+          res.render('index', {libros:productos});
         })
         .catch(error => console.log(error))
         
@@ -33,11 +28,11 @@ var indexController = {
         productos.findAll({
             where: {
                 [op.or]: [
-                    {titulo:{[op.like]: '%' + search + '%'}},
-                    {descripcion: {[op.like]: '%' + search + '%'}},
+                    {titulo:{[op.like]: '%' + productoBuscar + '%'}},
+                    {descripcion: {[op.like]: '%' + productoBuscar + '%'}},
                 ]
             },
-            include: [{association: 'User'}]
+            include: [{association: 'usuario'}]
         })
         .then((data) => {
             if(data !==null){

@@ -23,13 +23,13 @@ router.get('/product-add', productsController.productAdd);
 
 router.post('/store', upload.single('foto'), productsController.store); //ruta que guarda datos.
 
-router.post('/comentarios', productsController.storeComentarios); //comments
+//router.post('/comentarios', productsController.storeComentarios); //comments
 
 router.get('/id', productsController.show); //va a mostrar el form de carga.
 
 router.get('edit/:id', productsController.editar);
 
-router.post('/update/:id', uplad.single('foto'), productsController.update); // completar en el controlador
+//router.post('/update/:id', uplad.single('foto'), productsController.update); // completar en el controlador
 
 
 

@@ -24,12 +24,12 @@ var productsController = {
 
     show: function(req,res){
         productos.findOne({
-            include: [{id: req.params.id}] // le hago request al params para que me pase el id
+            where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
         .then(function(unProducto){
          // mostrar los comentarios ordenados
          // createdAt es una timestam que me permite saber cuando fueron creados los comentarios, lo que me sirve para saber el orden de llegada a la db. Asi los puedo expresar orderly
-         let ordenDeComentarios = unComentario.comentarios.slice().sort((a,b) => b.createdAt - a.createdAt); 
+         let ordenDeComentarios = unComentario.comentarios.slice().sort((a,b) => b.created_at - a.created_at); 
          unComentario.comentarios = ordenDeComentarios; //preguntar a martin se borrar 
          //hay que agregar un res.send?
 

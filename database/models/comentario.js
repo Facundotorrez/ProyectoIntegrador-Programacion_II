@@ -22,11 +22,11 @@ module.exports = function (sequelize, dataTypes){ //los modelos son funciones, l
             type: dataTypes.INTEGER
         },
 
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
         },
 
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE,
         }
     }

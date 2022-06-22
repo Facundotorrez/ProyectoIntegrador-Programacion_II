@@ -3,13 +3,8 @@ const db = require('../database/models');
 const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
-<<<<<<< HEAD
 const users = db.Usuario
 const Seguidor = db.seguidores
-=======
-const users = db.Usuario;
-const seguidores = db.Seguidor;
->>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
 
 //multer 
 const multer = require('multer');
@@ -60,17 +55,11 @@ const usersController = {
     create : function (req,res){
        return res.render('register');
     },
-<<<<<<< HEAD
     
     profileEdit: function (req, res) {
         if(req.session.user == undefined){
             return res.redirect('/')
     }
-=======
-
-    profileEdit : function (req,res){
-        return res.render('profile-edit');
->>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
     },
     
 
@@ -188,12 +177,9 @@ const usersController = {
             })
             .catch( error => console.log(error))
         }
-    },     
-
-<<<<<<< HEAD
-    logout: function(req,res){  
-=======
-
+    },   
+    
+    
     editar: function(req, res){
         let errors = {}
         //hago formulario como el de register
@@ -240,8 +226,7 @@ const usersController = {
         }
     },
 
-    logout: function(req,res){  //chequear, es el logout
->>>>>>> e8d0fe1e38faabf49b1486ce9c3b415b8a46bff0
+    logout: function(req,res){  
         req.session.destroy();
         if(req.cookies.userId !== undefined){
             res.clearCookie('userId')
