@@ -30,11 +30,11 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
 
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
         },
 
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE,
         },
     }
@@ -42,7 +42,7 @@ module.exports = function (sequelize, dataTypes){
 // configuraciones extras
 
     let config = {
-        tableName: 'comentarios', //nombre de la tabla nuestra.
+        tableName: 'productos', //nombre de la tabla nuestra.
         timestamps: false, // si la tabla no tiene las columnas createdAt y updatedAt.
         underscored: true, // si la tabla tiene columnas con nombres usando guiones bajos o camelcase.
     }
