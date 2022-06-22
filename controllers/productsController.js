@@ -25,7 +25,11 @@ var productsController = {
     },
 
     show: function(req,res){
+<<<<<<< HEAD
+        productos.findOne({
+=======
         /*productos.findOne({
+>>>>>>> c825524c3c0407b267d22ef934935b91adbc7635
             where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
         .then(function(unProducto){

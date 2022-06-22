@@ -1,4 +1,3 @@
-
 const db = require('../database/models');
 const data = require('../db/data');
 //requerimos lo que necesitamos de los modelos

@@ -4,7 +4,11 @@ const bcrypt = require('bcryptjs'); //preguntar a ale xq no me llama
 const productos = db.Producto
 const comentarios = db.Comentario
 const users = db.Usuario
+<<<<<<< HEAD
+const Seguidor = db.seguidores
+=======
 const seguidores = db.Seguidor
+>>>>>>> c825524c3c0407b267d22ef934935b91adbc7635
 
 //multer 
 const multer = require('multer');
