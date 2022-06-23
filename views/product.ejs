@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('./partials/head') %> 
+<%-include('./partials/head.ejs', {titulo:'Producto - BOOKIT Arg'})%>
+<!-- Include Head -->
+
+
 <body>
 	
 	<!-- Header -->
-	<%- include('./partials/header') %> 
+
+	<% if (locals.user) { %>
+		<%- include('partials/headerLogueado') %>
+		<% } else { %>
+		<%- include('partials/header') %>
+		<% } %>
+
 	<!-- product detail -->
+	
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">A CIEGAS</h2> 
-			<p class="product-detail-description">
-				<a href="/products/product-add.ejs ">Editar</a>
-			</p>
+			<h2 class="products-title"> <%= productos.titulo%> </h2>
 		</div>
+
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="./images/products/aciegas.jpg" alt="" class="product-detail-img">
+					<img src="/images/products/<%= productos.foto_producto %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						A ciegas</p>
-				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<% for(let i=0; i<comentarios.length; i++) { %> 	
-						<article>
-							<img src="<%= comentarios[i].foto_perfil %> " alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/users/profile"> <%= comentarios[i].nombre_usuario%> </a> </strong>
-								 <%= comentarios[i].comentario %> </p>
-							</div>
-						</article>
-					 <% } %>
+						<%= productos.descripcion %>
+					</p>
+					<h1 class="nombre"><a href="/users/profile/<%= productos.usuario.id %> ">
+						Creado por: <%= productos.usuario.nombre_usuario %> </h1> </a>
+					<p> </p>
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">COMENTAR</button>
+					<% if (locals.user) { %>
+					<% if (locals.user.id == productos.usuario.id) { %>
+					<form action="/product/borrar/<%= productos.id %> " method="post">
+						<button class="borrar" type="submit"> Borrar</button>
+						</form> 
+						<a href="/product/edit/<%= productos.id %>" class="borrar">Editar Producto</a> 
+						<% } %>
+					<% } %> 
+				</article>
+	
+				<section class="comments">
+					<h2 class="comentarios"> COMENTARIOS </h2>
+					<% for ( let i = 0 ; i < comentarios.length; i++) { %>
+					<article>
+						<img src="/images/users/%> " alt="">
+						<div class="data">
+							<p class="user">
+								<strong> <a href="/users/profile/<%= comentarios[i].usuario.id %> "> <%=comentarios[i].usuario.nombre_usuario%> </a> </strong>
+								<%=comentarios[i].comentario%>
+							</p>
+						</div>
+					</article>
+					<% } %>
+				</section> 
+
+				<div class="col-12 col-lg-4">
+					<form class="form" action="/product/comentario/<%= productos.id %> " method="post">
+						<input class="form-input1" name="comentario" type="text" value=""
+							placeholder="Agregar comentario">
+						<button class="buy-now-button" type="submit"> COMENTAR </button>
 					</form>
+
+	
 					<hr>
-					
-					<!-- PARA LA SEGUNDA PARTE 
-						<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>-->
 				</div>
 			</div>
 		</div>

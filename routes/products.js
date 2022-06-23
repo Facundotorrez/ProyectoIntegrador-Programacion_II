@@ -29,9 +29,6 @@ router.get('/:id', productsController.show); //va a mostrar el form de carga.
 
 router.get('/edit/:id', productsController.editar);
 
-<<<<<<< HEAD
-//router.post('/update/:id', uplad.single('foto'), productsController.update); // completar en el controlador
-=======
 //en esta parte seria similar a un agregar producto, la estructura es similar a la de editar perdil cuando uno se registra, ya que, hay que establecer denuevo los campos y poner las notificaciones de que no pueden haber campos vacios,etc.
 
 router.post('/edit/:id', upload.single('foto'), productsController.update); // completar en el controlador
@@ -39,7 +36,6 @@ router.post('/edit/:id', upload.single('foto'), productsController.update); // c
 //agregar ruta de eliminar producto
 
 router.post('/eliminar/:id', productsController.eliminar);
->>>>>>> c825524c3c0407b267d22ef934935b91adbc7635
 
 
 

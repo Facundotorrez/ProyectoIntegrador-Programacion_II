@@ -1,26 +1,30 @@
-const db = require('../database/models');
-const data = require('../db/data');
-//requerimos lo que necesitamos de los modelos
-//habilitamos la funcionalidad de los operadores de sequelize
-const productos = db.Producto;
-const usuarios = db.Usuario; 
-const comentarios = db.Comentario;
-const op = db.Sequelize.Op; // operadores de sequelize
+const { send
+ } = require('express/lib/response');
+ const db = require('../database/models')
+ const productos = db.Producto
+ const usuarios = db.Usuario
+ const op = db.Sequelize.Op;
 
 var indexController = {
-    index : function(req,res) {
-        productos.findAll ({
-            order: [['created_at', 'DESC']],
-            limit: 4,
-            include: [{association: 'usuario'}]
-        })
-        .then(function(productos){
+   index: function (req, res) {
+      productos.findAll({
+            include: [{
+               association: 'usuario'
+            }, {
+               association: 'comentario'
+            }],
+            order: [
+               ['created_at', 'ASC']
+            ]
+         })
+         .then(function (productos) {
+            return res.render('index', {
+               productos: productos,
+            })
+         })
          // res.send(productos)
-          res.render('index', {libros:productos});
-        })
-        .catch(error => console.log(error))
-        
-    },
+
+   },
     //estableciendo el navegador
     searchResults : function(req,res){
         let errors = {};  

@@ -57,6 +57,12 @@ img {
   height: 100%;
 }
 
+comentarios {
+  font-family: 'Reboto', sans-serif;
+  font-size: 20px;
+ color: #0004ff;
+}
+
 input,
 textarea {
   font-family: inherit;

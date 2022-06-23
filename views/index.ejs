@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('./partials/head') %> 
+<%- include('./partials/head', {titulo:'Bookit Arg'}) %> 
 <body>
 	
 	<!-- Header -->
@@ -12,7 +12,7 @@
 	
 	<!-- Banner -->
 	<div class="banner">
-		<img src="/images/banner.png">
+		<img src="/images/banner.png" alt="Banner principal">
 	</div>
 	
 
@@ -20,52 +20,26 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">MÁS POPULARES</h2>
+				<h2 class="products-title"> Novedades </h2>
 			</div>
+
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < 4; i++) { %> 
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="<%= libros[i].foto_producto %> " alt="Harry Poter: El cádiz de fuego ">
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= libros[i].titulo %> </h2>
-							<p><%= libros[i].descripcion %></p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<% } %> 
-		</div>
-	</div>
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">MÁS COMENTADOS</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-			<% for(let i = 4; i < 8; i++) { %> 
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="<%= libros[i].foto_producto %> " alt="Harry Poter: El cádiz de fuego ">
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= libros[i].titulo %> </h2>
-							<p><%= libros[i].descripcion %></p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<% } %> 
-		</div>
-	</div>
+			<% for ( let i=0 ; i < productos.length; i++) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+	
+								<a href="/product/<%= productos[i].titulo %> "> <img src="/images/products/<%=productos[i].foto_producto %>" alt="foto_producto"></a>
+								</figure>
+								<article class="product-box_data">
+									<h2 class="producto"> <a href="/product/<%= productos[i].titulo %> "><%= productos[i].titulo %> </h2> </a>
+									<p> <%= productos[i].descripcion%> </p>
+									<p> Comentarios: <%= productos[i].comentario.length%> </p>
+									<p><a href="/users/profile/<%= productos[i].usuario.Id%> "> Creado por: <%= productos[i].usuario.nombre_usuario %> </p> </a>
+								</article>
+						</section>
+					</div>
+				<% } %>
+
 	
 	<!-- footer -->
 	<%-include('./partials/footer.ejs')%> 

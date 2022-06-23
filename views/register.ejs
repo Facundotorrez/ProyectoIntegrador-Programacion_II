@@ -3,35 +3,47 @@
 <!-- Include Head -->
 <%- include('./partials/head') %> 
 <body>
-	
-   <%- include('./partials/header') %> 
+
+   	<!-- Header -->
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
+
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">REGISTRATE</h2>
+				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 				
 		</div>
 		<div class="x">
-			</section>			<section class="form-register">
+
+			</section>
+			
+			<section class="form-register">
+
 				<form method="post" action="/users/register" name="form-register" enctype="multipart/form-data">
 					<input class="form-input" type="email" name="email" id="nombres" placeholder="Email">
 					<input class="form-input" type="text" name="nombre_usuario" id="nombres" placeholder="Nombre de usuario">
-					<input class="form-input" type="password" name="password" id="nombres"
-						placeholder="Contraseña">
-					<input class="form-input" type="date" name="fecha" id="nombres"
-						placeholder="Fecha de nacimiento">
+					<input class="form-input" type="password" name="password" id="nombres" placeholder="Contraseña">
+					<input class="form-input" type="date" name="fecha" id="nombres" placeholder="Fecha de nacimiento">
 					<input class="form-input" type="file" name="foto_perfil" id="nombres" placeholder="Foto de perfil">
 					<button type="submit"  class="btn mt-3 ml-4" >REGISTRARSE</button>
+
 				</form>
-				<% if(locals.errors){  %>
-					<p class="errors"><%=errors.message%> </p> 
-				<% } %>
+
+				<% if (locals.errores) {%> 
+					<%= errores.message  %>  
+				<% } %> 
+				
 			</section>
+
 		</div>				
 			</h2>
 	</div>
@@ -39,4 +51,3 @@
 	<%- include('./partials/footer') %> 
 </body>
 
-</html>
