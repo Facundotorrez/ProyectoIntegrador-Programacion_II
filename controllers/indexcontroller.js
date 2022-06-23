@@ -40,7 +40,7 @@ var indexController = {
         })
         .then((data) => {
             if(data !==null){
-                return res.render('search-results', {productos: productoBuscar})
+                return res.render('search-results', {productos: data})
             } else {
                 errors.message = 'No hay resultados para su criterio de búsqueda';
                 res.locals.errors = errors;

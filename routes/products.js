@@ -25,7 +25,7 @@ router.post('/store', upload.single('foto'), productsController.store); //ruta q
 
 router.post('/comentarios', productsController.storeComentarios); //comments
 
-router.get('/:id', productsController.show); //va a mostrar el form de carga.
+router.get('/show/:id', productsController.show); //va a mostrar el form de carga.
 
 router.get('/edit/:id', productsController.editar);
 
