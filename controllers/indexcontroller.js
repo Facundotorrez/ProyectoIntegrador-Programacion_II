@@ -28,7 +28,7 @@ var indexController = {
     //estableciendo el navegador
     searchResults : function(req,res){
         let errors = {};  
-        let productoBuscar = req.query.search;
+        let productoBuscar = req.query.search;  //acordarse que search es lo que aparece en la url, search= donde estoy 
         productos.findAll({
             where: {
                 [op.or]: [
