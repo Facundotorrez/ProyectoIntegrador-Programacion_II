@@ -73,3 +73,7 @@ VALUES (DEFAULT, NULL,NULL, '2022-06-09', '2022-06-09'),
 
 ALTER TABLE productos
 ADD foto_producto VARCHAR (255);
+
+
+
+

@@ -39,22 +39,22 @@ module.exports = function (sequelize, dataTypes){
         },
     }
 
-// configuraciones extras
+
 
     let config = {
-        tableName: 'productos', //nombre de la tabla nuestra.
-        timestamps: false, // si la tabla no tiene las columnas createdAt y updatedAt.
-        underscored: true, // si la tabla tiene columnas con nombres usando guiones bajos o camelcase.
+        tableName: 'productos', 
+        timestamps: false, 
+        underscored: true, 
     }
 
     const Producto = sequelize.define(alias,cols,config);
 
-//Relaciones entre las tablas
-    Producto.associate = function (models){   //Producto(alias).associte(asociacion de modelos)
+
+    Producto.associate = function (models){   
         Producto.belongsTo(models.Usuario, {
             as: 'usuario',
             foreignKey: 'id_usuario'
-        }) //asociacion entre el modelo productos y el modelo de usuarios
+        }) 
 
         Producto.hasMany(models.Comentario, {
             as: 'comentario',
@@ -63,3 +63,13 @@ module.exports = function (sequelize, dataTypes){
     }
     return Producto;
 }
+
+
+
+
+
+
+
+
+
+

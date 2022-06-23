@@ -25,14 +25,9 @@ var productsController = {
         .catch(error => console.log(error))
     },
 
-<<<<<<< HEAD
-    show: function(req,res){
-        /*productos.findOne({
-=======
     show: function(req,res){ 
         productos.findOne({
             include: [{assosciation: 'usuario'}],
->>>>>>> 9392ae533f91142dd09f75bc2ac8e616d38c3325
             where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
         .then(function(productos){
