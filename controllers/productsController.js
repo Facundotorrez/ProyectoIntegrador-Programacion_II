@@ -38,7 +38,7 @@ var productsController = {
             })
             .then(function(comentarios){
                 console.log(comentarios);
-                return res.render('products', {productos: productos, comentarios: comentarios})
+                return res.render('product', {productos: productos, comentarios: comentarios})
             })
             .catch(error => console.log(error));
         })

@@ -32,7 +32,7 @@
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
 	
-								<a href="/product/<%= productos[i].titulo %> "> <img src="/images/products/<%=productos[i].foto_producto %>" alt="foto_producto"></a>
+								<a href="/product/<%= productos[i].id %> "> <img src="<%=productos[i].foto_producto %>" alt="foto"></a>
 								</figure>
 								<article class="product-box_data">
 									<h2 class="producto"> <a href="/product/<%= productos[i].titulo %> "><%= productos[i].titulo %> </h2> </a>
@@ -43,8 +43,8 @@
 						</section>
 					</div>
 				<% } %>
-
-	
+		</div>
+	</div>
 	<!-- footer -->
 	<%-include('./partials/footer.ejs')%> 
 	<!-- /footer -->
