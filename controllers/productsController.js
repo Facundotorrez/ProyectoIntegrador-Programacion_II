@@ -9,7 +9,7 @@ const usuarios = db.Usuario;
 const multer = require('multer');
 const path = require('path');
 const { dirname } = require('path');
-const producto = require('../database/models/producto');
+
 
 
 var productsController = {
@@ -25,14 +25,9 @@ var productsController = {
         .catch(error => console.log(error))
     },
 
-<<<<<<< HEAD
-    show: function(req,res){
-        /*productos.findOne({
-=======
     show: function(req,res){ 
         productos.findOne({
             include: [{assosciation: 'usuario'}],
->>>>>>> 9392ae533f91142dd09f75bc2ac8e616d38c3325
             where: [{id: req.params.id}] // le hago request al params para que me pase el id
         })
         .then(function(productos){
@@ -43,7 +38,7 @@ var productsController = {
             })
             .then(function(comentarios){
                 console.log(comentarios);
-                return res.render('productos', {productos: productos, comentarios: comentarios})
+                return res.render('products', {productos: productos, comentarios: comentarios})
             })
             .catch(error => console.log(error));
         })
@@ -59,7 +54,7 @@ var productsController = {
             }
             comentarios.create(comentario)
             .then(()=>{        //ale explico en clase que asi se puede simplificar el uso del then. Sustituye el poner un .then(function(loQueCorresponde){})
-                return res.redirect('product/' + req.params.id) //le pido a params el id del comentario 
+                return res.redirect('products/' + req.params.id) //le pido a params el id del comentario 
             })
             //atrapo el error ahora y no despues del else, xq la promesa incluye la primer condicion . el else no necesita que ataje el error
             .catch(error=>  console.log(error))
