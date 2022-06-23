@@ -5,7 +5,11 @@
 <body>
 	
 	<!-- Header -->
-	<%- include('./partials/header') %> 
+	<% if (locals.user != undefined) { %> 
+		<%-include('partials/headerLogeado') %>
+	 <% } else { %> 
+		<%- include('partials/header') %> 
+    <% } %> 
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
@@ -49,6 +53,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 	<!-- /product detail -->
 
